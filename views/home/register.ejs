@@ -1,0 +1,237 @@
+<html>
+        <head>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <title><%= title %></title>
+            <meta name="description" content="Free Bootstrap Theme by BootstrapMade.com">
+            <meta name="keywords" content="free website templates, free bootstrap themes, free template, free bootstrap, free website template">
+        
+            <link rel='stylesheet' id='tt-easy-google-fonts-css' href='https://fonts.googleapis.com/css?family=Roboto+Slab%3A100%7CCousine%3Aregular&#038;subset=vietnamese&#038;ver=4.7.2' type='text/css' media='all' />
+            <link rel='stylesheet' id='layers-google-fonts-css' href='https://fonts.googleapis.com/css?family=Roboto%3Aregular%2Citalic%2C700%2C100%2C100italic%2C300%2C300italic%2C500%2C500italic%2C700italic%2C900%2C900italic%7CRoboto+Slab%3Aregular%2C700%2C100%2C300%7CLato%3Aregular%2Citalic%2C700%2C100%2C100italic%2C300%2C300italic%2C700italic%2C900%2C900italic&#038;ver=1.5.5' type='text/css' media='all' />
+            <!-- <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans|Candal|Alegreya+Sans"> -->
+            <link rel="stylesheet" type="text/css" href="/vendor/font-awesome/css/font-awesome.min.css">
+            <link rel="stylesheet" type="text/css" href="/vendor/bootstrap/css/bootstrap.min.css">
+            <link rel="stylesheet" type="text/css" href="/vendor/bootstrap/css/jquery.dataTables.css">
+            <link rel="stylesheet" type="text/css" href="/vendor/bootstrap/css/imagehover.min.css">
+            <link rel="stylesheet" type="text/css" href="/css/toastr.min.css" />
+            <link rel="stylesheet" type="text/css" href="/css/style.css">
+            
+            <!-- =======================================================
+            Theme Name: Mentor
+            Theme URL: https://bootstrapmade.com/mentor-free-education-bootstrap-theme/
+            Author: BootstrapMade.com
+            Author URL: https://bootstrapmade.com
+            ======================================================= -->
+            <style>
+                .ui-autocomplete {
+                    position: absolute;
+                    top: 100%;
+                    left: 0;
+                    z-index: 1000;
+                    float: left;
+                    display: none;
+                    min-width: 160px;
+                    padding: 4px 0;
+                    margin: 0 0 10px 25px;
+                    list-style: none;
+                    background-color: #ffffff;
+                    border-color: #ccc;
+                    border-color: rgba(0, 0, 0, 0.2);
+                    border-style: solid;
+                    border-width: 1px;
+                    -webkit-border-radius: 5px;
+                    -moz-border-radius: 5px;
+                    border-radius: 5px;
+                    -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+                    -moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+                    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+                    -webkit-background-clip: padding-box;
+                    -moz-background-clip: padding;
+                    background-clip: padding-box;
+                    *border-right-width: 2px;
+                    *border-bottom-width: 2px;
+                }
+        
+                .ui-menu-item > a.ui-corner-all {
+                    display: block;
+                    padding: 3px 15px;
+                    clear: both;
+                    font-weight: normal;
+                    line-height: 18px;
+                    color: #555555;
+                    white-space: nowrap;
+                    text-decoration: none;
+                }
+        
+                .ui-state-hover, .ui-state-active {
+                    color: #ffffff;
+                    text-decoration: none;
+                    background-color: #0088cc;
+                    border-radius: 0px;
+                    -webkit-border-radius: 0px;
+                    -moz-border-radius: 0px;
+                    background-image: none;
+                }
+            </style>
+            <script src="/vendor/jquery/jquery.min.js"></script>
+            <!-- <script src="/Content/js/client.js"></script> -->
+            <script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
+            <script src="/js/jssor.slider.min.js"></script>
+            <script src="/js/custom.js"></script>
+            <script src="//js/angular.min.js"></script>
+            <script src="/js/controllers.js"></script>
+            <!-- <script src="/vendor/jquery/toastr.min.js"></script> -->
+            <script src="/vendor/jquery/jquery.dataTables.min.js"></script>
+            
+        </head>
+    
+        <body class="home header-style2" ng-app='myApp' >
+            <div style="background: url('/img/gallery/bg1.jpg'); background-size: cover;">
+                <div class="row">
+                    <div class="container">
+                            <div class="site-logo xs-mt-10" style="text-align: center; float:none; margin-top: 10%;">
+                                    <a style="display: block" href="http://vncoins.vn" title="vncCoin" class="default-logo">
+                                        <img src="/img/logo.png" alt="vncCoin" title="vncCoin">
+                                    </a>
+                                </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class='container' style="min-height: 600px;">
+                            <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3" style="padding-top: 10%; padding-bottom: 10%;">
+                                    <div class="well well-sm">
+                                        <div style="position: relative">
+                                            <div class=" registration_form_div" style="">
+                            
+                                                <form method="post" id="registrationForm"  name="registration_form" class="clearfix form-horizontal" action="#">
+                                                        <div class="w100p text-center" style="text-transform: uppercase;">
+                                                                <h2 class="mt10 clOrange">Đăng Ký</h2>
+                                                            </div>
+                            
+                                                    <div class="reg-error error">
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group " style="margin-bottom: 0px !important;">
+                                                            <div class="controls" style="padding: 2px; min-height: 65px; overflow: hidden;">
+                                                                <input type="text" id="emailreg" name="email" class="form-control input-lg" value="" placeholder="Email Address" style="margin-bottom: 0px;" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group " style="margin-bottom: 0px !important;">
+                                                            <div class="controls" style="padding: 2px; min-height: 65px; overflow: hidden;">
+                                                                <input type="text" id="usernamereg" name="username" class="form-control input-lg" value="" placeholder="User name" style="margin-bottom: 0px;" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group" style="margin-bottom: 0px !important;">
+                                                            <div class="controls" style="padding: 2px; min-height: 65px; overflow: hidden;">
+                                                                <input type="password" id="passwordreg" name="password" class="form-control input-lg" value="" placeholder="Password" style="margin-bottom: 0px;" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group" style="margin-bottom: 0px !important;">
+                                                            <div class="controls" style="padding: 2px; min-height: 65px; overflow: hidden;">
+                                                                <input type="password" id="pass_confirm" name="pass_confirm" class="form-control input-lg" value="" placeholder="Confirm password" style="margin-bottom: 0px;" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group" style="margin-bottom: 0px !important;">
+                                                            <div class="controls" style="padding: 2px; min-height: 65px; overflow: hidden;">
+                                                                <input type="tel" id="mobile" name="phonenumber" class="form-control input-lg" value="" style="margin-bottom: -2px !important;" placeholder="Phone number" />
+                                                                <div id="mobilemsg" class="error"></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group" style="margin-bottom: 0px !important;">
+                                                            <div class="controls" style="padding: 2px; min-height: 65px; overflow: hidden;">
+                                                                <input class="form-control input-lg " readonly="readonly" type="text" id="sponsor" name="sponsor" value="" placeholder="Sponsor" style="margin-bottom: 0px;" />
+                                                                <span style="display: block; font-size: 11px; margin-bottom: -1px">If you don't have sponsor, then leave it blank</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-12">
+                                                        <input type="hidden" id="country" name="country" value="" />
+                                                        <div class="form-group " style="margin-top: 15px;">
+                                                            <script src='https://www.google.com/recaptcha/api.js'></script>
+                                                            <div class="g-recaptcha" data-sitekey=""></div>
+                                                            <script>
+                                                                if(location.hostname == "localhost"){
+                                                                    $(".g-recaptcha").attr("data-sitekey","6LfXNjsUAAAAAOPfroYZRzkZTlhKhjTxMQWC3ykd");
+                                                                }else{
+                                                                    $(".g-recaptcha").attr("data-sitekey","6LeQNjsUAAAAAODIAq8fxuXiLHwtLuAoIuy2LnfT");
+                                                                }
+                                                            </script>
+                                                        </div>
+                                                    </div>
+                            
+                                                    <input type="submit" id="reghome" class="btn btn-success w100p" value="Đăng ký" style="font-size:17px;">
+                                                    <div style=" width: 100%; text-align: left; margin: 7px; clear: both;">
+                                                        Đã có tài khoản ? Click <a href="/login"> vào đây </a> để đăng nhập <br />
+                                                        <a href="#">Click here </a>to resend your activation link
+                                                    </div>
+                                                </form>
+                            
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                    </div>
+                                <style>
+                                    .form-control {
+                                        height: 45px;
+                                    }
+                                </style>
+                                <style>
+                                    .footer-menu li a {
+                                        color: black;
+                                    }
+                                
+                                    .footer-menu-link li:after {
+                                        content: "/";
+                                    }
+                                
+                                    .footer-menu-tags li {
+                                        margin-left: 0 !important;
+                                        margin-right: 0 !important;
+                                    }
+                                
+                                        .footer-menu-tags li a {
+                                            color: #999;
+                                            margin-left: 2px !important;
+                                            margin-right: 2px !important;
+                                        }
+                                
+                                    .footer-menu-one-structure li a {
+                                        color: black;
+                                    }
+                                
+                                    .footer-menu-one-structure {
+                                        float: none;
+                                    }
+                                
+                                        .footer-menu-one-structure li {
+                                            display: block;
+                                        }
+                                </style>
+                </div>
+    
+    
+                <script>
+                    $("#usernamereg").keyup(function(e){
+                        $(this).val($(this).val().toLowerCase());
+                    });
+                    if(getUrlParameter('ref') != null && getUrlParameter('ref') != '' && typeof getUrlParameter('ref') != 'undefined'){
+                        localStorage.setItem('ref', getUrlParameter('ref'));
+                        location.href = '/register';
+                    }else{
+                        $("#sponsor").val(localStorage.getItem('ref'));
+                    }
+                    
+                </script>
+    
+    <% include ../layout/bottom %>

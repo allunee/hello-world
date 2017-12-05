@@ -1,0 +1,118 @@
+<% include ../layout/top %>
+
+<style>
+                p.already-registered {
+                    text-align: center;
+                }
+            
+                .reg-error p {
+                    margin-bottom: 0px;
+                }
+            
+                .error {
+                    color: #FA890F !important;
+                    font-size: 11px !important;
+                    font-weight: 500 !important;
+                    margin-bottom: -2px !important;
+                }
+            
+                .form-control {
+                    font-size: 15px !important;
+                }
+            
+                .intl-tel-input .selected-flag {
+                    height: auto !important;
+                    padding: 39px 0 0 8px !important;
+                }
+            
+                .intl-tel-input {
+                    display: block !important;
+                }
+            
+                .registration_form_div label[class='error'] {
+                    background-color: rgb(214, 155, 94);
+                    color: white !important;
+                    padding-left: 5px;
+                    padding-right: 5px;
+                    border-radius: 0 0 5px 5px;
+                    font-weight: 700;
+                }
+            </style>
+            
+            <div class="container" style="min-height: 600px;">
+                <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3" style="padding-top: 10%; padding-bottom: 10%;">
+                    <div class="well well-sm">
+                        <div style="position: relative">
+                            <div class=" registration_form_div" style="padding: 10px; margin-top: 5%;">
+            
+                                <form method="post" id="registrationForm"  name="registration_form" class="clearfix form-horizontal" action="#">
+                                    <h3 class="widgettitle">It's free to join</h3>
+            
+                                    <div class="reg-error error">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group " style="margin-bottom: 0px !important;">
+                                            <div class="controls" style="padding: 2px; min-height: 65px; overflow: hidden;">
+                                                <input type="text" id="emailreg" name="email" class="form-control input-lg" value="" placeholder="Email Address" style="margin-bottom: 0px;" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group " style="margin-bottom: 0px !important;">
+                                            <div class="controls" style="padding: 2px; min-height: 65px; overflow: hidden;">
+                                                <input type="text" id="usernamereg" name="username" class="form-control input-lg" value="" placeholder="User name" style="margin-bottom: 0px;" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group" style="margin-bottom: 0px !important;">
+                                            <div class="controls" style="padding: 2px; min-height: 65px; overflow: hidden;">
+                                                <input type="password" id="passwordreg" name="password" class="form-control input-lg" value="" placeholder="Password" style="margin-bottom: 0px;" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group" style="margin-bottom: 0px !important;">
+                                            <div class="controls" style="padding: 2px; min-height: 65px; overflow: hidden;">
+                                                <input type="password" id="pass_confirm" name="pass_confirm" class="form-control input-lg" value="" placeholder="Confirm password" style="margin-bottom: 0px;" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group" style="margin-bottom: 0px !important;">
+                                            <div class="controls" style="padding: 2px; min-height: 65px; overflow: hidden;">
+                                                <input type="tel" id="mobile" name="phonenumber" class="form-control input-lg" value="" style="margin-bottom: -2px !important;" placeholder="Phone number" />
+                                                <div id="mobilemsg" class="error"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group" style="margin-bottom: 0px !important;">
+                                            <div class="controls" style="padding: 2px; min-height: 65px; overflow: hidden;">
+                                                <input class="form-control input-lg " type="text" id="sponsor" name="sponsor" value="" placeholder="Sponsor" style="margin-bottom: 0px;" />
+                                                <span style="display: block; font-size: 11px; margin-bottom: -1px">If you don't have sponsor, then leave it blank</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <input type="hidden" id="country" name="country" value="" />
+                                        <div class="form-group " style="margin-top: 15px;">
+                                            <script src='https://www.google.com/recaptcha/api.js'></script>
+                                            <div class="g-recaptcha" data-sitekey="6LcdmzcUAAAAAPt_5xA2i_ZbZA5Ip-Y0pYB1wAm5"></div>
+                                        </div>
+                                    </div>
+            
+                                    <input name="register" type="submit" id="reghome" class="btn btn-primary  pull-right" value="Sign Up">
+                                    <div style="font-size: 14px; width: 100%; text-align: left; margin: 7px; clear: both;">
+                                        <a href="#">Click here </a>to resend your activation link
+                                    </div>
+                                </form>
+            
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+
+        <% include ../layout/bottom %>

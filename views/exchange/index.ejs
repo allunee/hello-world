@@ -1,0 +1,349 @@
+<% include ../layout/betop %>
+        
+
+<div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel" style="padding-bottom: 0px;">
+    
+                <div class="x_content" style="padding-bottom: 0px;">
+                    <div class="col-md-3 col-sm-6 col-xs-12">
+                        <div class="alert alert-success alert-dismissible fade in" role="alert">
+                            <h4>BTC Wallet</h4>
+                            <strong ng-bind="info.btcAmount">0</strong>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6 col-xs-12">
+                        <div class="alert alert-success alert-dismissible fade in" role="alert">
+                            <h4>VNC Wallet</h4>
+                            <strong ng-bind="info.vncAmount">0</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-md-6 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2 style="float: none; text-align: center;">Summary <small>(24h)</small>
+                    </h2>
+    
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                    <table class="table table-striped">
+                        <tbody>
+                        <tr>
+                            <td>Last</td>
+                            <td>0.002</td>
+                        </tr>
+                        <tr>
+                            <td>24h High</td>
+                            <td>0.003</td>
+                        </tr>
+                        <tr>
+                            <td>24h Low</td>
+                            <td>0.001</td>
+                        </tr>
+                        <tr>
+                            <td>24h Volume</td>
+                            <td>200.097</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    
+        <div class="col-md-6 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2 style="float: none; text-align: center;">Create Order <small>(BTC/vncCoin)</small>
+                    </h2>
+    
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                    <div class="" role="tabpanel" data-example-id="togglable-tabs">
+                        <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
+                            <li role="presentation" class="active" style="width: 45%;">
+                                <a href="#tab_content1" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">Buy Order</a>
+                            </li>
+                            <li role="presentation" class="" style="width: 45%;">
+                                <a href="#tab_content2" role="tab" id="profile-tab" data-toggle="tab" aria-expanded="false">Sell Order</a>
+                            </li>
+    
+                        </ul>
+                        <div id="myTabContent" class="tab-content">
+                            <div role="tabpanel" class="tab-pane fade active in" id="tab_content1" aria-labelledby="home-tab">
+                                <form method="post" id="createBuyOrderForm" class="form-horizontal form-label-left">
+                                    <div class="item form-group">
+                                        <label>Available : 100 BTC </label> <a> ( ALL )</a>
+                                    </div>
+                                    <div class="item form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12">
+                                            BTC spend :
+                                        </label>
+                                        <div class="col-md-8 col-sm-8 col-xs-12">
+                                            <input type="text" name="buy-offer-quantity" class="form-control col-md-7 col-xs-12">
+                                        </div>
+                                    </div>
+                                    <div class="item form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12">
+                                            Price per vnc :
+                                        </label>
+                                        <div class="col-md-8 col-sm-8 col-xs-12">
+                                            <input type="text" name="buy-price" class="form-control col-md-7 col-xs-12">
+                                        </div>
+                                    </div>
+                                    <div class="item form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12">
+                                            vnc recieve :
+                                        </label>
+                                        <div class="col-md-8 col-sm-8 col-xs-12">
+                                            <input type="text" name="buy-want-quantity" class="form-control col-md-7 col-xs-12">
+                                        </div>
+                                    </div>
+    
+                                    <div class="ln_solid"></div>
+                                    <div class="form-group">
+                                        <div class="col-md-8 col-md-offset-3">
+                                            <button type="reset" class="btn btn-primary">Cancel</button>
+                                            <button type="submit" class="btn btn-success">Create Buy Order</button>
+                                        </div>
+                                    </div>
+    
+                                </form>
+                            </div>
+                            <div role="tabpanel" class="tab-pane fade" id="tab_content2" aria-labelledby="profile-tab">
+                                <form method="post" id="createSellOrderForm" class="form-horizontal form-label-left">
+                                    <div class="item form-group">
+                                        <label>Available : 100 vnc </label> <a> ( ALL )</a>
+                                    </div>
+                                    <div class="item form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12">
+                                            vnc sell :
+                                        </label>
+                                        <div class="col-md-8 col-sm-8 col-xs-12">
+                                            <input type="text" name="sell-offer-quantity" class="form-control col-md-7 col-xs-12">
+                                        </div>
+                                    </div>
+                                    <div class="item form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12">
+                                            Price per vnc :
+                                        </label>
+                                        <div class="col-md-8 col-sm-8 col-xs-12">
+                                            <input type="text" name="sell-price" class="form-control col-md-7 col-xs-12">
+                                        </div>
+                                    </div>
+                                    <div class="item form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12">
+                                            BTC receive :
+                                        </label>
+                                        <div class="col-md-8 col-sm-8 col-xs-12">
+                                            <input type="text" name="sell-want-quantity" class="form-control col-md-7 col-xs-12">
+                                        </div>
+                                    </div>
+    
+                                    <div class="ln_solid"></div>
+                                    <div class="form-group">
+                                        <div class="col-md-8 col-md-offset-3">
+                                            <button type="reset" class="btn btn-primary">Cancel</button>
+                                            <button type="submit" class="btn btn-success">Create Sell Order</button>
+                                        </div>
+                                    </div>
+    
+                                </form>
+                            </div>
+    
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-md-6 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2 style="float: none; text-align: center;">
+                        Selling Order
+                    </h2>
+    
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Volume BTC</th>
+                                <th>Rate BTC</th>
+                                <th>Volume vnc</th>
+                                <th>Rate USD</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>Last</td>
+                            <td>0.002</td>
+                        </tr>
+                        <tr>
+                            <td>24h High</td>
+                            <td>0.003</td>
+                        </tr>
+                        <tr>
+                            <td>24h Low</td>
+                            <td>0.001</td>
+                        </tr>
+                        <tr>
+                            <td>24h Volume</td>
+                            <td>200.097</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    
+        <div class="col-md-6 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2 style="float: none; text-align: center;">
+                        Buying Order
+                    </h2>
+    
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Volume BTC</th>
+                                <th>Rate BTC</th>
+                                <th>Volume vnc</th>
+                                <th>Rate USD</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Last</td>
+                                <td>0.002</td>
+                            </tr>
+                            <tr>
+                                <td>24h High</td>
+                                <td>0.003</td>
+                            </tr>
+                            <tr>
+                                <td>24h Low</td>
+                                <td>0.001</td>
+                            </tr>
+                            <tr>
+                                <td>24h Volume</td>
+                                <td>200.097</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="x_panel">
+                        <div class="x_title">
+                            <h2 style="float: none; text-align: center;">
+                                My Open Order
+                            </h2>
+            
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="x_content">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>Date</th>
+                                        <th>Type</th>
+                                        <th>Price (BTC)</th>
+                                        <th>Volume vnc</th>
+                                        <th>Total (BTC)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Last</td>
+                                        <td>0.002</td>
+                                    </tr>
+                                    <tr>
+                                        <td>24h High</td>
+                                        <td>0.003</td>
+                                    </tr>
+                                    <tr>
+                                        <td>24h Low</td>
+                                        <td>0.001</td>
+                                    </tr>
+                                    <tr>
+                                        <td>24h Volume</td>
+                                        <td>200.097</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+    </div>
+
+    <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="x_panel">
+                        <div class="x_title">
+                            <h2 style="float: none; text-align: center;">
+                                Market History
+                            </h2>
+            
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="x_content">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>Date</th>
+                                        <th>Type</th>
+                                        <th>Price (BTC)</th>
+                                        <th>Volume vnc</th>
+                                        <th>Total (BTC)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Last</td>
+                                        <td>0.002</td>
+                                    </tr>
+                                    <tr>
+                                        <td>24h High</td>
+                                        <td>0.003</td>
+                                    </tr>
+                                    <tr>
+                                        <td>24h Low</td>
+                                        <td>0.001</td>
+                                    </tr>
+                                    <tr>
+                                        <td>24h Volume</td>
+                                        <td>200.097</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+    </div>
+
+
+<% include ../layout/bebottom %>

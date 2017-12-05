@@ -1,0 +1,75 @@
+
+
+<div style="position:relative;">
+<% if(result != null){ %>
+        <div> 
+                <p> Ngày : <%= result.lotteryday1 %>     </p>
+                <p> Số : <%= result.lotterynumber %>     </p>
+                <table> 
+                        <tr>
+                                <td>Giải đánh </td>
+                        
+                        <% for(var k = 0; k < result.listbet.length; k++){ %>
+                                <td> <%= result.listbet[k] %> </td>
+                        <% } %>
+                        <tr>
+                </table>
+                <div>
+                        <div id="kqxscontent"></div>
+                        <% for(var k = 0; k < listkq.length; k++){ %>
+                                <table width="100%" cellspacing="0" cellpadding="0" border="0" class="kqmb">
+                                                <tr class="giai8">
+                                                        <td class="txt-giai">Giải tám</td>
+                                                        <td colspan="12" class="number"><b><%= listkq[k].result.tam[0] %></b></td>
+                                                </tr>
+                                                <tr class="bg_ef">
+                                                        <td class="txt-giai">Giải bảy</td>
+                                                        <td colspan="12" class="number"><b><%= listkq[k].result.bay[0] %></b></td>
+                                                </tr>
+                                                <tr>
+                                                        <td class="txt-giai">Giải sáu</td>
+                                                        <td colspan="4" class="number"><b><%= listkq[k].result.sau[0] %></b></td>
+                                                        <td colspan="4" class="number"><b><%= listkq[k].result.sau[1] %></b></td>
+                                                        <td colspan="4" class="number"><b><%= listkq[k].result.sau[2] %></b></td></tr>
+                                                <tr class="bg_ef">
+                                                        <td class="txt-giai">Giải năm</td>
+                                                        <td colspan="12" class="number"><b><%= listkq[k].result.nam[0] %></b></td>
+                                                </tr>
+                                                <tr class="giai4">
+                                                        <td rowspan="2" class="txt-giai">Giải bốn</td>
+                                                        <td colspan="3" class="number"><b><%= listkq[k].result.bon[0] %></b></td>
+                                                        <td colspan="3" class="number"><b><%= listkq[k].result.bon[1] %></b></td>
+                                                        <td colspan="3" class="number"><b><%= listkq[k].result.bon[2] %></b></td>
+                                                        <td colspan="3" class="number"><b><%= listkq[k].result.bon[3] %></b></td>
+                                                </tr>
+                                                <tr>
+                                                        <td colspan="4" class="number"><b><%= listkq[k].result.bon[4] %></b></td>
+                                                        <td colspan="4" class="number"><b><%= listkq[k].result.bon[5] %></b></td>
+                                                        <td colspan="4" class="number"><b><%= listkq[k].result.bon[6] %></b></td></tr>
+                                                <tr class="bg_ef">
+                                                        <td class="txt-giai">Giải ba</td>
+                                                        <td colspan="6" class="number"><b><%= listkq[k].result.ba[0] %></b></td>
+                                                        <td colspan="6" class="number"><b><%= listkq[k].result.ba[1] %></b></td>
+                                                </tr>
+                                                <tr>
+                                                        <td class="txt-giai">Giải nhì</td>
+                                                        <td colspan="12" class="number"><b><%= listkq[k].result.nhi[0] %></b></td>
+                                                </tr>
+                                                <tr class="bg_ef">
+                                                        <td class="txt-giai">Giải nhất</td>
+                                                        <td colspan="12" class="number"><b><%= listkq[k].result.nhat[0] %></b></td>
+                                                </tr>
+                                                <tr class="db">
+                                                        <td class="txt-giai">Đặc biệt</td>
+                                                        <td colspan="12" class="number"><b><%= listkq[k].result.DB[0] %></b></td>
+                                                </tr>
+                                        </table>
+                        <% } %>
+                </div>
+        </div>
+<% }else { %>
+        END
+<% } %>
+        
+</div>
+

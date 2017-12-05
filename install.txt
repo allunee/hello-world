@@ -1,0 +1,1 @@
+npm install express morgan body-parser aspnet-identity-pw jsonwebtoken request mongoose socket.io socketio-jwt socketio-jwt bitcoin ejs

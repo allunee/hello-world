@@ -1,0 +1,354 @@
+@import url(https://fonts.googleapis.com/css?family=Lato);
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/*body {
+  font-size: 16px;
+  font-family: 'Lato', sans-serif;
+}*/
+
+.timeline {
+    width: 100%;
+    /*background: transparent;*/
+  color: #333;
+}
+.timeline h1,
+.timeline ul li .content h2 {
+  text-shadow: 1px 1px 1px rgba(56, 56, 56, 0.5);
+}
+.timeline h1 {
+  background: #3d9e67;
+  padding: 70px 0;
+  font-size: 2.5em;
+  text-align: center;
+}
+.timeline ul {
+  /*background: #faf8eb;*/
+  padding: 50px 0;
+}
+.timeline ul li {
+  background: #67CC8E;
+  position: relative;
+  margin: 0 auto;
+  width: 5px;
+  padding-bottom: 40px;
+  list-style-type: none;
+}
+.timeline ul li:last-child {
+  padding-bottom: 7px;
+}
+.timeline ul li:before {
+  content: '';
+  background: #faf8eb;
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  width: 20px;
+  height: 20px;
+  border: 3px solid #67CC8E;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+}
+.timeline ul li .hidden {
+  opacity: 0;
+}
+.timeline ul li .content {
+  background: #67CC8E;
+  position: relative;
+  top: 7px;
+  width: 450px;
+  padding: 10px 20px;
+  min-height: auto;
+  border-radius: 5px;
+}
+.timeline ul li .content h2 {
+  /*color: #fff;*/
+  padding-bottom: 10px;
+  text-align: center;
+}
+.timeline ul li .content p {
+  /*text-align: center;*/
+    margin-bottom: 5px;
+}
+.timeline ul li .content:before {
+    content: '';
+    background: #fff;
+    position: absolute;
+    top: 0px;
+    width: 42px;
+    height: 5px;
+}
+.timeline ul li:nth-child(odd) .content {
+    /*border-top-left-radius: 0px;*/
+  left: 45px;
+  background: #fff;
+  /*background: -webkit-linear-gradient(-45deg, #56BC83, #67CC8E);
+  background: linear-gradient(-45deg, #56BC83, #67CC8E);*/
+}
+.timeline ul li:nth-child(odd) .content:before {
+  left: -35px;
+}
+.timeline ul li:nth-child(even) .content { /*67CC8E*/
+  left: calc(-450px - 45px);
+
+  background: #fff;
+  /*background: -webkit-linear-gradient(45deg, #56BC83, #67CC8E);
+  background: linear-gradient(45deg, #56BC83, #67CC8E);*/
+}
+.timeline ul li:nth-child(even) .content:before {
+  right: -38px;
+}
+.timeline .intend-time {
+    position: absolute;
+    background: #67CC8E;
+    padding: 5px 10px;
+    top: 0px;
+    
+}
+.timeline ul li:nth-child(odd) .intend-time {
+    left: -155px;
+}
+.timeline ul li:nth-child(odd) .intend-time:before {
+    content: '';
+    background: #67CC8E;
+    position: absolute;
+    top: 0px;
+    width: 40px;
+    height: 5px;
+    left: 65px;
+}
+
+.timeline ul li:nth-child(even) .intend-time {
+    right: -168px;
+}
+.timeline ul li:nth-child(even) .intend-time:before {
+    content: '';
+    background: #67CC8E;
+    position: absolute;
+    top: 0px;
+    width: 45px;
+    height: 5px;
+    right: 67px;
+}
+
+/* -------------------------
+   ----- Media Queries ----- 
+   ------------------------- */
+@media screen and (max-width: 1020px) {
+
+  .timeline ul li .content {
+    width: 41vw;
+  }
+
+  .timeline ul li:nth-child(even) .content {
+    left: calc(-41vw - 45px);
+  }
+}
+@media screen and (max-width: 800px) {
+    .timeline ul {
+        margin-left: 85px;
+    }
+  .timeline ul li {
+    margin-left: 20px;
+  }
+  .timeline ul li .content {
+    width: calc(100vw - 190px);
+  }
+  .timeline ul li .content h2 {
+    text-align: initial;
+  }
+  .timeline ul li:nth-child(even) .content {
+    left: 45px;
+    /*background: #67CC8E;
+    background: -webkit-linear-gradient(-45deg, #56BC83, #67CC8E);
+    background: linear-gradient(-45deg, #56BC83, #67CC8E);*/
+  }
+  .timeline ul li:nth-child(even) .content:before {
+    left: -33px;
+  }
+    .timeline ul li:nth-child(odd) .intend-time {
+    left: -145px;
+}
+.timeline ul li:nth-child(odd) .intend-time:before {
+    width: 10px;
+    left: 85px;
+}
+
+.timeline ul li:nth-child(even) .intend-time {
+    left: -144px;
+    right: inherit;
+}
+.timeline ul li:nth-child(even) .intend-time:before {
+    top: 0px;
+    right: -9px;
+}
+
+}
+
+@media (min-width: 576px) {
+    .container-timeline {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .timeline ul {
+        margin-left: 75px;
+    }
+    .timeline ul li .content {
+    width: calc(100vw - 180px);
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.demnguoc{
+position: relative;
+    height: 260px;
+    text-align: center;
+    padding: 5px;
+  top: -20px;
+}
+#countdown{
+	
+	height: 150px;
+	text-align: center;
+	
+	margin: auto;
+	padding: 24px 0;
+}
+
+
+#countdown #tiles{
+	position: relative;
+	z-index: 1;
+  top: -10px;
+}
+
+#countdown #tiles > span{
+	width: 70px;
+	max-width: 70px;
+	font: bold 38px 'Droid Sans', Arial, sans-serif;
+	text-align: center;
+	color: #111;
+	background-color: #ddd;
+	background-image: -webkit-linear-gradient(top, #bbb, #eee); 
+	background-image:    -moz-linear-gradient(top, #bbb, #eee);
+	background-image:     -ms-linear-gradient(top, #bbb, #eee);
+	background-image:      -o-linear-gradient(top, #bbb, #eee);
+	border-top: 1px solid #fff;
+	border-radius: 3px;
+	box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.7);
+	margin: 0 7px;
+	padding: 18px 0;
+	display: inline-block;
+	position: relative;
+}
+
+#countdown #tiles > span:before{
+	content:"";
+	width: 100%;
+	height: 13px;
+	background: #111;
+	display: block;
+	padding: 0 3px;
+	position: absolute;
+	top: 41%; left: -3px;
+	z-index: -1;
+}
+
+#countdown #tiles > span:after{
+	content:"";
+	width: 100%;
+	height: 1px;
+	background: #eee;
+	border-top: 1px solid #333;
+	display: block;
+	position: absolute;
+	top: 48%; left: 0;
+}
+
+#countdown .labels{
+	width: 100%;
+	height: 25px;
+	text-align: center;
+	position: absolute;
+	bottom: 8px;
+}
+
+#countdown .labels li{
+	width: 85px;
+	font: bold 15px 'Droid Sans', Arial, sans-serif;
+	color: #ffffff;
+	text-shadow: 1px 1px 0px #000;
+	text-align: center;
+	text-transform: uppercase;
+	display: inline-block;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* jssor slider loading skin spin css */
+            .jssorl-009-spin img {
+                animation-name: jssorl-009-spin;
+                animation-duration: 1.6s;
+                animation-iteration-count: infinite;
+                animation-timing-function: linear;
+            }
+
+            @keyframes jssorl-009-spin {
+                from {
+                    transform: rotate(0deg);
+                }
+
+                to {
+                    transform: rotate(360deg);
+                }
+            }

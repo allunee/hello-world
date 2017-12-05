@@ -1,0 +1,21 @@
+<% include ../layout/admintop %>
+
+<div style="position:relative;">
+        Your point : 
+        <form id="usersendpoint" method="post" >
+                <input type="hidden" name="idreceiver" value="" id="idreceiver" />
+                <div class="form-group-control" >
+                        <label>Username : </label>
+                        <input type="text" value="" name="username" id="username" class="autocompleteUser"/>
+                </div>
+                <div class="form-group-control" >
+                        <label>Phone : </label>
+                        <input type="text" value="0" name="point" id="point" />
+                </div>
+                <div class="form-group-control" >
+                        <button class="btn "> Submit </button>
+                </div>
+        </form>        
+</div>
+
+<% include ../layout/adminbottom %>

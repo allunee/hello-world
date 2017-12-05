@@ -1,0 +1,306 @@
+
+
+
+.marketBlock {
+    margin-bottom: 50px;
+}
+
+.tableHead .settingData {
+    margin-left: 15px;
+    font-size: 15px;
+    margin-top: 5px;
+}
+
+#marketsContainer {
+    position: relative;
+    height: 40px;
+    width: 100%;
+    background-color: rgb(179, 213, 214);
+    font-size: 18px;
+    line-height: 40px;
+    border-bottom: 1px solid rgb(11, 112, 118);
+}
+#marketsContainer table {
+    font-size: 0.65em;
+    font-weight: 400;
+    line-height: 25px;
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+#marketsContainer .head {
+    position: relative;
+    height: 40px;
+    width: 100%;
+    background-color: rgb(179, 213, 214);
+    font-size: 22px;
+    line-height: 40px;
+    border-bottom: 1px solid rgb(11, 112, 118);
+}
+#marketsContainer .head .name {
+    float: left;
+    color: rgb(58, 68, 73);
+    text-transform: uppercase;
+    margin: 0px 10px;
+}
+#marketsContainer .head .search {
+    float: right;
+    color: rgb(145, 171, 172);
+    height: 25px;
+    width: 104px;
+    background-clip: padding-box;
+    background-color: rgb(255, 255, 255);
+    margin: 6px 10px 0px 1px;
+    border-radius: 5px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(145, 171, 172);
+    border-image: initial;
+    transition: 0.8s;
+}
+#marketsContainer .head .settings {
+    font-size: 11px;
+    float: right;
+    margin: 0px 5px 0px 0px;
+}
+#marketsContainer .search .icon {
+    float: left;
+    font-size: 16px;
+    line-height: 24px;
+    user-select: none;
+    margin: 0px 4px;
+}
+
+#marketsContainer .search input {
+    float: left;
+    margin-top: -8px;
+    width: 80px;
+    font-size: 12px;
+    color: rgb(67, 87, 94);
+    box-shadow: transparent 0px 0px 0px inset;
+    background-color: transparent;
+    border-width: initial;
+    border-style: none;
+    border-color: initial;
+    border-image: initial;
+    padding: 0px;
+    position: absolute;
+}
+#marketTables {
+    position: relative;
+    width: 100%;
+    float: left;
+}
+#marketTables .tableHead {
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    border-bottom: 3px solid rgb(227, 151, 6);
+}
+#marketTables ul.tabs {
+    font-weight: 600;
+    font-size: 0.7em;
+    text-transform: uppercase;
+    display: flex;
+    -webkit-box-lines: single;
+    flex-wrap: nowrap;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: stretch;
+    align-items: stretch;
+    list-style: none;
+    margin: 10px 0px 0px;
+    padding: 0px;
+}
+#marketTables ul.tabs li {
+    margin-left: 5px;
+    margin-bottom: 0px;
+    text-align: center;
+    line-height: 30px;
+    /* display: flex; */
+    background-color: rgb(245, 218, 167);
+    cursor: pointer;
+    user-select: none;
+    padding: 0px 15px;
+}
+#marketTables ul.tabs li p {
+    margin: 0px;
+}
+#marketTables ul.tabs li.active {
+    color: rgb(255, 255, 255);
+    background-color: rgb(227, 151, 6);
+}
+#marketTables ul.tbMa {
+    padding: 0px;
+}
+#marketTables ul.tbMa li {
+    float: left;
+    margin: 0px 5px;
+    width: 35px;
+}
+#marketTables ul.tbMa li input{
+    position: relative;
+    top: 2px;
+    left: 2px;
+}
+.marketContainer {
+    display : none;
+    /*height : 410px; 
+    overflow-y: scroll;*/
+}
+.marketContainer.active {
+    display : block;
+}
+table.dataTable {
+    width : 100%; font-size: 12px;
+    text-align: left;
+}
+table.dataTable tr th {
+    padding: 5px 10px;
+}
+table.dataTable tr td {
+    padding: 5px 10px;
+}
+table.dataTable th .fa-caret-down, table.dataTable th .fa-caret-up {
+    display: none;
+}
+table.dataTable tr:nth-child(even) {
+    background-color: #f3f7f7;
+}
+table.dataTable tr {
+    border-bottom: 1px solid #eee;
+}
+table.dataTable thead {
+    background-color: #b3d5d6;
+}
+table.dataTable td p {
+    line-height: 20px;
+    margin: 0px;
+}
+#marketsContainer tbody tr:hover {
+  background-color: #dae7e6;
+  border-top: 1px double #79a3a4;
+  border-bottom: 1px double #79a3a4;
+  border-right: 0;
+  border-left: 0; }
+
+#marketsContainer tr.active, #marketsContainer tr.active:hover {
+    background-color: #fbf4c7;
+    background-color: #ebdf95;
+    background-image: -webkit-linear-gradient(#ebdf95, #fbf4c7 15%);
+    background-image: linear-gradient(#ebdf95, #fbf4c7 15%);
+    border-top: 1px double #f7ab1c;
+    border-bottom: 1px solid #f7ab1c;
+    border-right: 0;
+    border-left: 0;
+}
+#marketsContainer table td, #marketsContainer table th {
+    padding: 0 4px;
+    border: none;
+}
+#marketsContainer .coin {
+    padding-left: 4px;
+    text-align: left;
+    font-weight: bold;
+}
+#marketsContainer .star {
+    /*display : none;*/
+}
+
+#marketsContainer .thBuy {
+    color: #27892f;
+}
+
+#marketsContainer .thSell {
+    color: #c02a1d;
+}
+#marketsContainer .thproloss, #marketsContainer .bet {
+    width: 130px;
+    position: relative;
+}
+#marketsContainer .thproloss input {
+    width: 35px;
+    padding-left:  5px;
+    height: 20px;
+    position: absolute;
+    right: 15px;
+}
+#marketsContainer .profit {
+    color: #27892f;
+}
+#marketsContainer .stoploss {
+    color: #c02a1d;
+}
+#marketsContainer .bet p {
+    margin-left: 0px;
+}
+#marketsContainer .bet input {
+    width: 75px;
+    position: absolute;
+    right: 15px;
+    height: 20px;
+    padding-left:  5px;
+}
+
+#marketsContainer tr.priceChangeUp td {
+  background-color: #ceebd3 !important;
+  border-top: 1px double #27892f;
+  border-bottom: 1px double #27892f;
+  -webkit-transition-duration: 0.1s;
+  -moz-transition-duration: 0.1s;
+  transition-duration: 0.1s; }
+
+#marketsContainer tr.priceChangeDown td {
+  background-color: #f6d4d1 !important;
+  border-top: 1px double #c02a1d;
+  border-bottom: 1px double #c02a1d;
+  -webkit-transition-duration: 0.1s;
+  -moz-transition-duration: 0.1s;
+  transition-duration: 0.1s; }
+
+.pair-info {position: relative; margin-bottom: 20px;}
+
+.pair-info p {
+    width: 65%; margin-bottom: 4px;
+}
+
+.pair-info input {
+    width: 60%;
+    float: right;
+    height: 22px;
+    padding: 0px 5px;
+}
+
+.pair-info button {
+    position: absolute;
+    right: 0px;
+    top: 25px;
+    padding: 2px 7px;
+    font-size: 12px;
+}
+
+.pair-info button.waiting-buy, .pair-info button.waiting-sell {
+    top: 50px;
+}
+
+.paginate_button {
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    padding: 2px 5px; 
+    margin-left: 5px;
+    cursor: pointer;  
+}
+
+.dataTables_paginate{
+    float: right;
+    margin: 10px 0px;
+}
+
+.paginate_button.current {
+    font-weight: bold;
+}

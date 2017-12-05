@@ -1,0 +1,82 @@
+<% include ../layout/top %>
+
+<div class='container' style="min-height: 600px;">
+    <div id='login' class='panel panel-default mainbox col-xs-12 col-sm-12  col-md-6 col-md-offset-3' style="box-shadow:0px 0px 2px  0px grey;margin-top: 60px">
+
+        <div class="w100p text-center"><h3 class="mt10 clOrange">Login</h3></div>
+        <form id="loginForm" method="post" action="/login" accept-charset="utf-8" autocomplete="off" class="login_page_form form-horizontal">
+            <div class="reg-error error">
+            </div>
+            <input type="hidden" name="returnUrl" id="returnUrl" />
+            <div class="input-group margin-bottom-sm " style="margin-bottom: 10px">
+                <span class="input-group-addon"><i class="fa fa-envelope-o fa-fw  fa-fw"></i></span>
+                <input type="text" class="form-control" name="Login" value="" tabindex="1" placeholder="Username or Email" />
+            </div>
+            <div class="input-group margin-bottom-sm " style="margin-bottom: 10px">
+                <span class="input-group-addon"><i class="fa fa-key  fa-fw"></i></span>
+                <input type="password" class="form-control" name="Password" id="password" value="" tabindex="2" placeholder="Password" />
+            </div>
+
+            <div class="input-group margin-bottom-sm " style="margin-bottom: 10px">
+                <script src='https://www.google.com/recaptcha/api.js'></script>
+                <div class="g-recaptcha" data-sitekey="6LcdmzcUAAAAAPt_5xA2i_ZbZA5Ip-Y0pYB1wAm5"></div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-lg-12">
+                    <button type="submit" class="btn btn-success login-button w100p"  style="border-radius: 3px">Login</button>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-lg-12 text-center">
+
+
+                    <a href="#">Create An Account</a><br />
+                    <a href="#">Forgot your password ?</a><br>
+                    <a href="#">Click here</a> to resend your activation link
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+            <style>
+                .input-group .form-control {
+                    height: auto !important;
+                    margin-top: 0px !important;
+                }
+            </style>
+            <style>
+                .footer-menu li a {
+                    color: black;
+                }
+            
+                .footer-menu-link li:after {
+                    content: "/";
+                }
+            
+                .footer-menu-tags li {
+                    margin-left: 0 !important;
+                    margin-right: 0 !important;
+                }
+            
+                    .footer-menu-tags li a {
+                        color: #999;
+                        margin-left: 2px !important;
+                        margin-right: 2px !important;
+                    }
+            
+                .footer-menu-one-structure li a {
+                    color: black;
+                }
+            
+                .footer-menu-one-structure {
+                    float: none;
+                }
+            
+                    .footer-menu-one-structure li {
+                        display: block;
+                    }
+            </style>
+        
+
+        <% include ../layout/bottom %>

@@ -1,0 +1,110 @@
+<% include ../layout/admintop %>
+
+<div style="position:relative;">
+        
+        <form id="userlotterybet" method="post" >
+                các đài mở hôm nay : 
+                <ul>
+                <% for(var i = 0; i < result.length; i++){ %>
+                        <li> 
+                                <%= result[i].province %>     
+                                <input type="checkbox" value="<%= result[i].id %>" name="lotteryprovince" />              
+                        </li>
+                <% } %>
+                </ul>
+                <div class="form-group-control" >
+                        <label>Chọn số : </label>
+                        <input type="text" value="" name="lotterynumber" id="loterynumber" />
+                </div>
+                <div class="form-group-control" >
+                        <label>Chọn giải : </label>
+                        <table>
+                                <tr>
+                                        <td colspan="2">Chọn tất cả </td>
+                                        <td> <input type="checkbox" id='selectall' /> </td>
+                                </tr>
+                                <tr>
+                                        <td>Giải tám</td>
+                                        <td> 1 giải </td>
+                                        <td><input type="checkbox" value="tam" name="listbet" class="checknum" numlength='2' />
+                                </tr>
+                                <tr>
+                                        <td>Giải bảy</td>
+                                        <td> 1 giải </td>
+                                        <td><input type="checkbox" value="bay" name="listbet" class="checknum" numlength='3' />
+                                </tr>
+                                <tr>
+                                        <td>Giải sáu</td>
+                                        <td> 3 giải </td>
+                                        <td><input type="checkbox" value="sau" name="listbet" class="checknum" numlength='4' />
+                                </tr>
+                                <tr>
+                                        <td>Giải năm</td>
+                                        <td> 1 giải </td>
+                                        <td><input type="checkbox" value="nam" name="listbet" class="checknum" numlength='4' />
+                                </tr>
+                                <tr>
+                                        <td>Giải bốn</td>
+                                        <td> 7 giải </td>
+                                        <td><input type="checkbox" value="bon" name="listbet" class="checknum" numlength='5' />
+                                </tr>
+                                <tr>
+                                        <td>Giải ba</td>
+                                        <td> 2 giải </td>
+                                        <td><input type="checkbox" value="ba" name="listbet" class="checknum" numlength='5' />
+                                </tr>
+                                <tr>
+                                        <td>Giải nhì</td>
+                                        <td> 1 giải </td>
+                                        <td><input type="checkbox" value="nhi" name="listbet" class="checknum" numlength='5' />
+                                </tr>
+                                <tr>
+                                        <td>Giải nhất</td>
+                                        <td> 1 giải </td>
+                                        <td><input type="checkbox" value="nhat" name="listbet" class="checknum" numlength='5' />
+                                </tr>
+                                <tr>
+                                        <td>Đặc biệt</td>
+                                        <td> 1 giải </td>
+                                        <td><input type="checkbox" value="DB" name="listbet" class="checknum" numlength='6' />
+                                </tr>
+                        </table>
+                </div>
+                <div class="form-group-control" >
+                        <button class="btn "> Submit </button>
+                </div>
+        </form>        
+</div>
+<script>
+        $(document).ready(function(){
+                $("#loterynumber").keyup(function(event) {
+                        $(this).val($(this).val().replace(/[^0-9]/g, ''));
+                        var len = $(this).val().length;
+                        if( len > 6){
+                                $(this).val($(this).val().substring(0,6));
+                                len --;
+                        }
+                        $("#userlotterybet input.checknum").each(function(){
+                                if( parseInt($(this).attr('numlength')) >= len){
+                                        $(this).removeAttr("disabled");
+                                }else{
+                                        $(this).attr("disabled", 'disabled');
+                                }
+                        });
+                });
+
+                $("#selectall").click(function(){
+                        if($(this).is(':checked')){
+                                $('.checknum').prop('checked', true);
+                                $('.checknum:disabled').prop('checked', false);
+                                console.log('checked');
+                        }else{
+                                $('.checknum').prop('checked', false);
+                                console.log('uncheck');
+                        }
+                        
+                });
+                
+        });
+</script>
+<% include ../layout/adminbottom %>

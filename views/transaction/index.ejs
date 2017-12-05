@@ -1,0 +1,108 @@
+<% include ../layout/betop %>
+
+
+<div class="row" >
+    
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="x_panel">
+            <ul class="transactionTitle">
+                <li class="active" trans-name='btcTransactions'>
+                    <span>Bitcoin</span>
+                </li>
+                <li trans-name='vncTransactions'>
+                    <span>VNCOIN</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="col-md-12 col-sm-12 col-xs-12" ng-controller="transactionCtrl">
+        <div class="x_panel btcTransactions trans active">
+            <div class="x_title">
+                <h2>BTC Transactions</h2>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <table class="table table-striped">
+                    <thead>
+                      <tr>
+                        <th>Date</th>
+                        <th>Type</th>
+                        <th>Amount</th>
+                        <th>Description</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr ng-repeat="trans in filteredTransactionBTC">
+                        <td ng-bind="trans.datecreate"></td>
+                        <td ng-bind="trans.type"></td>
+                        <td ng-bind="trans.amount"></td>
+                        <td ng-bind="trans.description"></td>
+                      </tr>
+                    </tbody>
+                  </table>      
+                  <pagination total-items="totalItemsBTC" ng-model="currentPageBTC" max-size="maxSize" 
+                  class="pagination" boundary-links="true" rotate="false" num-pages="numPages"></pagination>
+                  <p>
+            </div>
+        </div>
+
+        <div class="x_panel vncTransactions trans">
+                <div class="x_title">
+                    <h2>VNC Transactions</h2>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content" >
+                    <table class="table table-striped">
+                        <thead>
+                          <tr>
+                            <th>Date</th>
+                            <th>Type</th>
+                            <th>Amount</th>
+                            <th>Description</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr ng-repeat="trans in filteredTransactionVNC">
+                            <td ng-bind="trans.datecreate"></td>
+                            <td ng-bind="trans.type"></td>
+                            <td ng-bind="trans.amount"></td>
+                            <td ng-bind="trans.description"></td>
+                          </tr>
+                        </tbody>
+                      </table>      
+                      <pagination total-items="totalItemsVNC" ng-model="currentPageVNC" max-size="maxSize" 
+                      class="pagination" boundary-links="true" rotate="false" num-pages="numPages"></pagination>
+                      <p>
+                </div>
+            </div>
+    </div>
+    
+
+</div>
+
+<style>
+    ul.transactionTitle{
+        list-style: none;
+    }
+    ul.transactionTitle li {
+        float: left;
+        padding: 10px 20px;
+        margin: 0px 20px;
+        background: #666;
+        border-radius: 5px;
+        text-transform: uppercase;
+        cursor: pointer;
+    }
+    ul.transactionTitle li.active{
+        background: #e75228;
+    }
+    .trans {display: none;}
+    .trans.active {display: inline-block;}
+
+
+</style>
+
+
+
+<% include ../layout/bebottom %>

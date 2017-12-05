@@ -1,0 +1,225 @@
+<% include ../layout/top %>
+
+<!--Organisations-->
+<section id="currencyPairInfo" class="section-padding">
+<div class="container">
+    <div class="row">
+        <div class="col-md-9" style="padding: 0px; margin-left: -12px;">
+            <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+            <div class="chart-info">
+                <script type="text/javascript">
+                    new TradingView.widget({
+                        "width": 850,
+                        "height": 400,
+                        "symbol": "POLONIEX:BTCUSDT",
+                        "interval": "5",
+                        "timezone": "Etc/UTC",
+                        "theme": "Light",
+                        "style": "1",
+                        "locale": "en",
+                        "toolbar_bg": "#f1f3f6",
+                        "enable_publishing": false,
+                        "allow_symbol_change": true,
+                        "hideideas": true
+                    });
+                </script>
+            </div>
+        </div>
+        <div class="col-md-3" style="height: 400px; border: 1px solid #dedede">
+            <div >
+                <h5>CurrencyPair : <span id="selectedCurrencyPair"></span></h5>
+                <div class="pair-info">
+                    <h5>Manual Buy</h5>
+                    <p>Price : <input class="price-buy" type="text"/></p>
+                    <p>Amount : <input class="amount-buy" type="text" /></p>
+                    <button class="btn btn-success buy">BUY</button>
+                    <button class="btn btn-success waiting-buy">waiting-buy</button>
+                </div>
+                <div class="pair-info">
+                    <h5>Manual Sell</h5>
+                    <p>Price : <input class="price-sell" type="text" /></p>
+                    <p>Amount : <input class="amount-sell" type="text" /></p>
+                    <button class="btn btn-danger sell">SELL</button>
+                    <button class="btn btn-danger waiting-sell">waiting-sell</button>
+                </div>
+                <div>
+                    <p>Waitting order buy :</p>
+                    <p class="waiting-buy-data"></p>
+                    <p>Waitting order sell :</p>
+                    <p class="waiting-sell-data"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+<!--/ Organisations-->
+
+<!--Feature-->
+<section id="feature" class="section-padding" style="">
+    <div class="container">
+        <div class="row">
+
+            <div class="box markets exchangeMarkets" id="marketsContainer">
+                <div class="head">
+                    <div class="name">Markets</div>
+                    <div class="search">
+                        <div class="icon">
+                            <i class="fa fa-search"></i>
+                        </div>
+                        <input type="text" placeholder="Filter (Ctrl+F)" id="marketSearch" class="clearable">
+                    </div>
+                    <!-- <div class="settings replaceCheckboxes">
+                        <input type="checkbox" name="marketStar" id="marketStar" value="marketStarred"> <label for="marketStar">show <i class="fa fa-star"></i> only</label>
+                    </div> -->
+                </div>
+                <div id="marketTables">
+                    <div class="tableHead">
+                        <ul class="tabs">
+                            <li id="baseTabBTC" data-url="containerBTC" >BTC
+                                    <p id="balancesBTC"></p>
+                            </li>
+                            <li id="baseTabETH" data-url="containerETH">ETH
+                                <p id="balancesETH"></p>
+                            </li>
+                            <li id="baseTabXMR" data-url="containerXMR">XMR
+                                <p id="balancesXMR"></p>
+                            </li>
+                            <li id="baseTabUSDT" data-url="containerUSDT">USDT
+                                <p id="balancesUSDT"></p>
+                            </li>
+                        </ul>
+                        <div class="settingData">
+                            Buy/Sell
+                            <select class="thSetting" >
+                                <option value="_5m" >5 mins</option>
+                                <option value="_15m" >15 mins</option>
+                                <option value="_30m" >30 mins</option>
+                                <option value="_1h" >1 hours</option>
+                            </select> 
+                        </div>
+                        <div class="settingData">
+                            Moving Average
+                            <select class="maSetting">
+                                <option value="ma7">MA 7</option>
+                                <option value="ma20">MA 20</option>
+                                <option value="ma50">MA 50</option>
+                            </select>
+                        </div>
+                        
+                    </div>
+                    <%
+                        var listmain = ["BTC", "ETH", "XMR", "USDT" ];
+                        listmain.forEach(function(item) { %>
+                                <section id="container<%= item %>" class="marketContainer">
+                                        <table id="market<%= item %>" class="market">
+                                            <thead>
+                                                <tr>
+                                                    <th class="star">
+                                                            <input type="checkbox" class="autoselectall" data-url="container<%= item %>" />
+                                                        
+                                                    </th>
+                                                    <th>Coin
+                                                        <i class="fa fa-caret-down"></i><i class="fa fa-caret-up"></i>
+                                                    </th>
+                                                    <th>Price/Change
+                                                        <i class="fa fa-caret-down"></i><i class="fa fa-caret-up"></i>
+                                                    </th>
+                                                    <th>Volume(24h)
+                                                        <i class="fa fa-caret-down"></i><i class="fa fa-caret-up"></i>
+                                                    </th>
+                                                    <th>Change
+                                                        <i class="fa fa-caret-down"></i><i class="fa fa-caret-up"></i>
+                                                    </th>
+                                                    <th style="color: #27892f;"> Balance
+                                                        <i class="fa fa-caret-down"></i><i class="fa fa-caret-up"></i>
+                                                    </th>
+                                                    <th>
+                                                        
+                                                        <span style="color: #27892f;">Buy</span> / <span style="color: #c02a1d;">Sell</span> 
+                                                        <i class="fa fa-caret-down"></i><i class="fa fa-caret-up"></i>
+                                                    </th>
+                                                    <th>Profit / Stop Loss (%)
+                                                        <i class="fa fa-caret-down"></i><i class="fa fa-caret-up"></i>
+                                                    </th>
+                                                    <th>Min/Max Bet
+                                                        <i class="fa fa-caret-down"></i><i class="fa fa-caret-up"></i>
+                                                    </th>
+                                                    <th>
+                                                        
+                                                        <ul class="tbMa">
+                                                            <li>5m</li>
+                                                            <li>15m</li>
+                                                            <li>30m</li>
+                                                            <li>2h</li>
+                                                            <li>4h</li>
+                                                            <li>1d</li>
+                                                        </ul>
+                                                        <i class="fa fa-caret-down"></i><i class="fa fa-caret-up"></i>
+                                                    </th>
+                                                
+                                                </tr>
+                                            </thead>
+                                            <tbody></tbody>
+                                            </table>
+                                </section>
+                    <%    
+                        });
+                    %>
+
+
+                        
+
+                    
+                    
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--/ feature-->
+
+<script src="/js/socket.io.js"></script>
+<script src="/js/plx_1.js"></script>
+<script src="/js/plx_2.js"></script>
+
+<script src="/js/plx_marketTables.js"></script>
+<script src="/js/plx_ex.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+    var selectedCurrencyPair = settingData.selectedCurrencyPair;
+    $("#marketRow" + selectedCurrencyPair.toLowerCase()).addClass("active");
+    if(!selectedCurrencyPair) {
+        selectedCurrencyPair = 'BTC_USDT';
+    }
+    $("#selectedCurrencyPair").html(selectedCurrencyPair);
+    var abc = selectedCurrencyPair.split('_');
+    var link = 'https://s.tradingview.com/widgetembed/?symbol=POLONIEX%3A' + abc[1] + abc[0] + '&interval=5&symboledit=1&saveimage=1'
+        + '&toolbarbg=f1f3f6&studies=%5B%5D&hideideas=1&theme=Light&style=1&timezone=Etc%2FUTC&studies_overrides=%7B%7D'
+        + '&overrides=%7B%7D&enabled_features=%5B%5D&disabled_features=%5B%5D&locale=en&utm_source=localhost'
+        + '&utm_medium=widget&utm_campaign=chart&utm_term=POLONIEX%3A' + abc[1] + abc[0];
+    
+    $("#currencyPairInfo .chart-info iframe").eq(0).attr("src", link);
+});
+
+$(document).on("dblclick", ".dataTable tr", function (e) {
+    //code here
+    $(".dataTable tr").removeClass("active");
+    $(this).addClass("active");
+    var abc = $(this).attr("data-url").toUpperCase().split('_');
+    selectedCurrencyPair = abc[0] + '_' + abc[1];
+    settingData.selectedCurrencyPair = selectedCurrencyPair;
+    UpdateSettingData(settingData);
+    $("#selectedCurrencyPair").html(selectedCurrencyPair);
+    var link = 'https://s.tradingview.com/widgetembed/?symbol=POLONIEX%3A' + abc[1] + abc[0] + '&interval=5&symboledit=1&saveimage=1'
+        + '&toolbarbg=f1f3f6&studies=%5B%5D&hideideas=1&theme=Light&style=1&timezone=Etc%2FUTC&studies_overrides=%7B%7D'
+        + '&overrides=%7B%7D&enabled_features=%5B%5D&disabled_features=%5B%5D&locale=en&utm_source=localhost'
+        + '&utm_medium=widget&utm_campaign=chart&utm_term=POLONIEX%3A' + abc[1] + abc[0];
+    
+    $("#currencyPairInfo .chart-info iframe").eq(0).attr("src", link);
+});
+</script>
+
+<% include ../layout/bottom %>
+

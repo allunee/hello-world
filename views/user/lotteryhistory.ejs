@@ -1,0 +1,35 @@
+<% include ../layout/admintop %>
+
+<div style="position:relative;">
+        <input id="page" type="hidden" value="1" />
+        <div class="kqxscontent"></div>
+        <br/>
+        <button class="xemkq"  > Xem thêm  </button>
+
+    
+</div>
+<script>
+        function LoadUserBet(page){
+                $.ajax({
+                        type: "GET",
+                        url: '/user/lotteryhistoryresult',
+                        data: {
+                                page : page
+                        }, // serializes the form's elements.
+                        success: function(data)
+                        {
+                                $(".kqxscontent").append(data); // show response from the php script.
+                                page ++;
+                                $("#page").val(page);
+                        }
+                });
+        }
+        $(document).ready(function(){
+                $(".xemkq").click(function(){
+                     var page = parseInt($("#page").val());
+                     LoadUserBet(page);   
+                })
+                
+        });
+</script>
+<% include ../layout/adminbottom %>

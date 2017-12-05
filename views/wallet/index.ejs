@@ -1,0 +1,247 @@
+<% include ../layout/betop %>
+
+
+<div class="row" >
+    
+    <div class="col-md-6 col-sm-12 col-xs-12">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>BTC Wallet</h2>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <div class="alert alert-success alert-dismissible fade in" role="alert">
+                    <h4>BTC Amount</h4>
+                    <strong ng-bind="info.btcAmount">0</strong>
+                    <a href="javascript:;" style="color: #fff;">
+                        <i style="float: right; font-size: 20px;" class="fa fa-refresh"></i>
+                    </a>
+                    
+                </div>
+                <p>
+                    To see your deposit BTC address, click
+                    <a id="viewBTCAddress" href="javascript:;" data-popup-open="popup-btc-address" >
+                        <code>here</code>
+                    </a>
+                </p>
+                <form id="transferBTCForm" class="form-horizontal form-label-left" novalidate>
+                    <br/>
+                    <span class="section">Withdraw BTC
+                        <a class="btn btn-default btn-xs" style="float: right;">View history</a>
+                    </span>
+                    <div class="item form-group reg-error error"> </div>
+                    <div class="item form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">
+                            BTC Amount <span class="required">*</span>
+                        </label>
+                        <div class="col-md-8 col-sm-6 col-xs-12">
+                            <input type="text" name="btcAmount" class="form-control col-md-10 col-xs-12">
+                        </div>
+                    </div>
+                    <div class="item form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">
+                            BTC Address <span class="required">*</span>
+                        </label>
+                        <div class="col-md-8 col-sm-6 col-xs-12">
+                            <input type="text" name="btcAddress" class="form-control col-md-10 col-xs-12">
+                        </div>
+                    </div>
+                    <div class="item form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">
+                            Your Password <span class="required">*</span>
+                        </label>
+                        <div class="col-md-8 col-sm-6 col-xs-12">
+                            <input type="password" name="confirmPassword" class="form-control col-md-10 col-xs-12">
+                        </div>
+                    </div>
+                    <div class="item form-group">
+                        <label class="control-label ">
+                            Withdraw Fee : 0.0005 BTC
+                        </label>
+                    </div>
+                    <div class="ln_solid"></div>
+                    <div class="form-group">
+                        <div class="col-md-6 col-md-offset-3">
+                            <!-- <button type="submit" class="btn btn-primary">Cancel</button> -->
+                            <button id="send" type="submit" class="btn btn-success">Submit</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6 col-sm-12 col-xs-12">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>VNC Wallet</h2>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <div class="alert alert-success alert-dismissible fade in" role="alert">
+                    <h4>VNC Amount</h4>
+                    <strong ng-bind="info.vncAmount">0</strong>
+                    <a href="javascript:;" style="color: #fff;">
+                        <i style="float: right; font-size: 20px;" class="fa fa-refresh"></i>
+                    </a>
+                </div>
+                <p>
+                    To see your deposit VNC address, click
+                    <a id="viewBTCAddress" href="javascript:;" data-popup-open="popup-vnc-address">
+                        <code>here</code>
+                    </a>
+                </p>
+                <form id="transferVNCForm" class="form-horizontal form-label-left" novalidate>
+                    <br/>
+                    <span class="section">Withdraw VNC
+                        <a class="btn btn-default btn-xs" style="float: right;">View history</a>
+                    </span> 
+                    <div class="item form-group reg-error error"> </div>
+                    <div class="item form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">
+                            VNC Amount <span class="required">*</span>
+                        </label>
+                        <div class="col-md-8 col-sm-6 col-xs-12">
+                            <input type="text" name="vncAmount" class="form-control col-md-10 col-xs-12">
+                        </div>
+                    </div>
+                    <div class="item form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">
+                            VNC Address <span class="required">*</span>
+                        </label>
+                        <div class="col-md-8 col-sm-6 col-xs-12">
+                            <input type="text" name="vncAddress" class="form-control col-md-10 col-xs-12">
+                        </div>
+                    </div>
+                    <div class="item form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">
+                            Your Password <span class="required">*</span>
+                        </label>
+                        <div class="col-md-8 col-sm-6 col-xs-12">
+                            <input type="password" name="confirmPassword" class="form-control col-md-10 col-xs-12">
+                        </div>
+                    </div>
+                    <div class="item form-group">
+                        <label class="control-label ">
+                            Withdraw Fee : 0.0005 VNC
+                        </label>
+                    </div>
+                    <div class="ln_solid"></div>
+                    <div class="form-group">
+                        <div class="col-md-6 col-md-offset-3">
+                            <!-- <button type="submit" class="btn btn-primary">Cancel</button> -->
+                            <button id="send" type="submit" class="btn btn-success">Submit</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<style>
+    .popup .prepend-icon {
+        margin: 0;
+        font-size: 14px;
+        font-weight: 400;
+        color: #626262;
+        outline: 0;
+        top: 0;
+        left: 0;
+        display: inline-block;
+        vertical-align: top;
+        position: relative;
+        width: 100%;
+    }
+    .popup .gui-input {
+        position: relative;
+        vertical-align: top;
+        border: 1px solid #DDD;
+        display: -moz-inline-stack;
+        display: inline-block;
+        color: #626262;
+        outline: 0;
+        height: 42px;
+        width: 100%;
+    }
+    .popup  .field-icon {
+        top: 0;
+        z-index: 4;
+        display: inline-block !important;
+        /* width: 42px;
+        height: 42px; */
+        color: inherit;
+        line-height: 42px;
+        position: absolute;
+        text-align: center;
+        -webkit-transition: all .5s ease-out;
+        -moz-transition: all .5s ease-out;
+        -ms-transition: all .5s ease-out;
+        -o-transition: all .5s ease-out;
+        transition: all .5s ease-out;
+        pointer-events: none;
+    }
+
+
+
+    .popup .copy-link-ref {
+    position: absolute!important;
+    top: 0!important;
+    bottom: 0!important;
+    left: 0!important;
+    right: 0!important;
+    height: auto!important;
+    background: rgb(51, 122, 183)!important;
+    width: auto!important;
+    color: white!important;
+    padding-top: 13%!important;
+    cursor: pointer!important;
+    font-size: 16px!important;
+    border-radius: 0px 5px 5px 0px!important;
+}
+
+</style>
+
+<div class="popup" data-popup="popup-vnc-address">
+    <div class="popup-inner" style="margin-top: 20px;">
+        <div style="text-align: center;">
+                <h5>Your VNC address</h5>
+                <label class="field prepend-icon" >
+                    <input id="copyTarget" class="gui-input gui-input-ref" type="text" ng-model="info.vncAddress" style="min-width: 300px" readonly="">
+                    <a id="copyButton" class="field-icon field-icon-ref" title="Copy your referral link" style="display: inline-block !important;">
+                        <i class="fa fa-link copy-link-ref" style="font-size: 13px !important;"> Copy</i>
+                    </a>
+                    <span id="link-copied-message" class="link-copied-message"> Link copied</span>
+                </label>
+                <br/>
+                <div id="vncQRcode" code="{{info.vncAddress}}" ></div>
+                <a class="popup-close" data-popup-close="popup-vnc-address" href="#">x</a>
+        </div>
+        
+    </div>
+</div>
+
+
+<div class="popup" data-popup="popup-btc-address">
+    <div class="popup-inner" style="margin-top: 20px;">
+        <div style="text-align: center;">
+                <h5>Your BTC address</h5>
+                <label class="field prepend-icon" >
+                    <input id="copyBtcTarget" class="gui-input gui-input-ref" type="text" ng-model="info.btcAddress"  readonly="">
+                    <a id="copyBtcAddress" class="field-icon field-icon-ref" title="Copy your referral link" style="display: inline-block !important;">
+                        <i class="fa fa-link copy-link-ref" style="font-size: 13px !important;"> Copy</i>
+                    </a>
+                    <span id="btc-copied-message" class="link-copied-message"> Link copied</span>
+                </label>
+                <br/>
+                <div id="btcQRcode" code="{{info.btcAddress}}"></div>
+                <a class="popup-close" data-popup-close="popup-btc-address" href="#">x</a>
+        </div>
+        
+    </div>
+</div>
+
+
+
+<% include ../layout/bebottom %>
