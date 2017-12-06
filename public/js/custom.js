@@ -158,6 +158,7 @@ jQuery(document).ready(function ($) {
             type: "POST",
             success: function (result) {
                 // console.log(result);
+                grecaptcha.reset();
                 for (var i = 0; i < result.mes.length ; i++) {
                     $("#registrationForm .reg-error").append("<span>" + result.mes[i] + "</span>");
                 }
@@ -181,6 +182,7 @@ jQuery(document).ready(function ($) {
             type: "POST",
             success: function (result) {
                 // console.log(result);
+                grecaptcha.reset();
                 for (var i = 0; i < result.mes.length ; i++) {
                     $("#loginForm .reg-error").append("<span>" + result.mes[i] + "</span>");
                 }

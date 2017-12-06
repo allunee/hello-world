@@ -271,9 +271,6 @@ router.post('/login', function(req, res){
                     username: userfinded.username,
                     token : token
                 };
-                Helpers.RequestBalance(userfinded, function(){
-
-                });
                 UserAuth.AddUserAuth(item, function(){
                     
                 });

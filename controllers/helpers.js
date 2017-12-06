@@ -223,10 +223,10 @@ module.exports.RequestBalance = function(user, callback){
         results.dbBTC.transactions.forEach(ele =>{
             listExistBTC.push(ele.txid);
         });
+        var listAdd = [];
+        var amountVNC = 0;
+        var amountBTC = 0;
         if(results.walletVNC.status != false){
-            var listAdd = [];
-            var amountVNC = 0;
-            var amountBTC = 0;
             results.walletVNC.forEach(ele => {
                 if(ele.category == 'receive' && listExistVNC.indexOf(ele.txid) == -1){
                     var trans = {
@@ -241,9 +241,11 @@ module.exports.RequestBalance = function(user, callback){
                         description : 'deposit vnc'
                     }
                     listAdd.push(trans);
-                    amountVNC += parseFloat(ele.amount).toFixed(8);
+                    amountVNC += (ele.amount);
                 }
             });
+        } 
+        if(results.walletBTC.status != false){
             results.walletBTC.forEach(ele => {
                 if(ele.category == 'receive' && listExistBTC.indexOf(ele.txid) == -1){
                     var trans = {
@@ -258,69 +260,37 @@ module.exports.RequestBalance = function(user, callback){
                         description : 'deposit btc'
                     }
                     listAdd.push(trans);
-                    amountBTC += parseFloat(ele.amount).toFixed(8);
+                    amountBTC += (ele.amount);
                 }
             });
-            if(listAdd.length > 0){
-                Transaction.insertMany(listAdd, function(err, added){
-                    if(!err){
-                        var query = {
-                            _id : user.id,
-                        };
-                        var setField = {$set: { vncAmount: user.vncAmount + amountVNC, btcAmount: user.btcAmount + amountBTC, free : 1}};
-                        User.update(query, setField, {upsert: true}, function(err, up){
-                            // console.log(err); console.log(up);
-                        })
-                    }else{
-                        // Log Error
-                    }
-                    
-                });
-            }
-            
-        }        
+        }
+        
+        if(listAdd.length > 0){
+            Transaction.insertMany(listAdd, function(err, added){
+                if(!err){
+                    var query = {
+                        _id : user.id,
+                    };
+                    var setField = {$set: { vncAmount: parseFloat(user.vncAmount + amountVNC).toFixed(8), btcAmount: parseFloat(user.btcAmount + amountBTC).toFixed(8), free : 1}};
+                    User.update(query, setField, {upsert: true}, function(err, up){
+                    })
+                }else{
+                    // Log Error
+                }
+                
+            });
+        }else{
+            var query = {
+                _id : user.id,
+            };
+            var setField = {$set: {  free : 1}};
+            User.update(query, setField, {upsert: true}, function(err, up){
+            })
+        }
+
     });
 
-    // this.DoApiRequest(formVNC, 'http://45.77.245.205:8080/api/owncoin/listtransactions', function(result){
-    //     if(result != false){
-    //         result.forEach(element => {
-    //             if(element.category == 'receive'){
-    //                 Transaction.GetTransactionsByTx(element.txid, function(result){
-    //                     console.log('fdasfeaw', result.transactions.length);
-    //                     if(result.transactions.length == 0){
-    //                         console.log(element);
-    //                         var trans = {
-    //                             idUser : user.id,
-    //                             address : user.vncAddress,           // address of btc or vnc
-    //                             walletType : 'vnc',        // btc or vnc
-    //                             amount : element.amount,
-    //                             type: 'deposit',        // buy, sell, deposit, withdraw, fee
-    //                             datecreate :  element.timereceived,
-    //                             status : 0,            //
-    //                             txid : element.txid,
-    //                             description : 'deposit'
-    //                         }
-    //                         Transaction.insertMany([trans], function(err, db){
-    //                             if(!err){
-    //                                 var query = {
-    //                                     _id : user.id,
-    //                                 };
-    //                                 var setField = {$set: { vncAmount: user.vncAmount + element.amount}};
-    //                                 User.update(query, setField, {upsert: true}, function(err, up){
-    //                                     // console.log(err); console.log(up);
-    //                                 })
-    //                             }else{
-                                    
-    //                             }
-                                
-    //                         });
-    //                     }
-    //                 })
-    //             }
-    //         });
-    //     }
-    // });
-
+    
 }
 
 

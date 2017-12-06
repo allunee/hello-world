@@ -91,10 +91,7 @@ router.post('/changepass', Helpers.isAuthenticated, function(req, res, next) {
 })
 
 router.get('/getuserinfo', Helpers.isAuthenticated, function(req, res, next) {
-    // console.log("token", req.decoded._doc);
-    
     User.GetUserByID(req.decoded._doc._id, function(result){
-        // console.log("kq", result);
         Helpers.RequestBalance(result.user);
         result.user.password = '';
         res.json(result.user);

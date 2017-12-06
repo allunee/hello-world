@@ -26,7 +26,7 @@ router.get('/index', function(req, res, next) {
     res.render('exchange/index', data);    
 })
 
-router.get('/loto', Helpers.isAuthenticated, function(req, res, next){
+router.get('/createsellorder', Helpers.isAuthenticated, function(req, res, next){
     var data = {
         title: 'Loto game',
         description: 'Page Description',
@@ -35,7 +35,7 @@ router.get('/loto', Helpers.isAuthenticated, function(req, res, next){
     res.render('play/loto', data); 
 })
 
-router.get('/exchange', function(req, res, next){
+router.get('/createbuyorder', function(req, res, next){
     var currency = req.query.currency;
     var data = {
         title: 'Loto game',

@@ -21,7 +21,7 @@ var Helpers = require('./helpers');
 // router.get('/', function(req, res, next) {
 //     res.redirect("/market/index");
 // })
-router.get('/', Helpers.isAuthenticated, function(req, res, next) {
+router.get('/', Helpers.isAuthenticated, function(req, res, next) {    
     // console.log(req.decoded._doc);
     var data = {
         title: 'Wallet Page',
