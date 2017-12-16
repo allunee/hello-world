@@ -26,7 +26,6 @@ module.exports.Add = function(item, callback){
 			throw err;
 		}
 		else {
-            console.log(result);
 			callback({status : true, id: result.id});
 		}
 	});

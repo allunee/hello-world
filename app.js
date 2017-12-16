@@ -18,8 +18,8 @@ var config = require('./config'); // get our config file
 // =======================
 // configuration =========
 // =======================
-var port = process.env.PORT || 2000; // used to create, sign, and verify tokens
-mongoose.connect(config.database); // connect to database
+var port = process.env.PORT || 44188; // used to create, sign, and verify tokens
+mongoose.connect(config.databaseDeployed); // connect to database
 app.set('superSecret', config.secret); // secret variable
 app.set('views', (path.join(__dirname, 'views')));
 app.set('view engine', 'ejs');
@@ -89,5 +89,8 @@ server.listen(port, function(){
     //socketapp.Init(server);    
 });
 
+require('dns').lookup(require('os').hostname(), function (err, add, fam) {
+    console.log('addr: '+add);
+  })
 
 

@@ -195,12 +195,12 @@ module.exports.RequestBalance = function(user, callback){
             })
         },
         walletVNC: function(callback) {
-            Helpers.DoApiRequest(formVNC, 'http://45.77.245.205:8080/api/owncoin/listtransactions', function(result){
+            Helpers.DoApiRequest(formVNC, 'http://45.76.156.203:8080/api/owncoin/listtransactions', function(result){
                 callback(null, result);
             });
         },
         walletBTC: function(callback) {
-            Helpers.DoApiRequest(formBTC, 'http://45.77.245.205:8080/api/owncoin/listtransactions', function(result){
+            Helpers.DoApiRequest(formBTC, 'http://45.76.156.203:8080/api/owncoin/listtransactions', function(result){
                 callback(null, result);
             });
         },

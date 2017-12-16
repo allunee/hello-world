@@ -22,6 +22,7 @@ $(function() {
 					e.preventDefault();
 			}
 	});
+
 });
 
 // Get Google ReCaptcha
@@ -47,13 +48,13 @@ $("#copyButton").click(function (e) {
 	setTimeout(function() {
 			$("#link-copied-message").hide();
 	}, 1500);
-	
+
 });
 
 $("#btcQRcode").qrcode({
 	text	:  $("#btcQRcode").attr("code"),
 	size : 100
-});	
+});
 
 $("#vncQRcode").qrcode({
 	text	:  $("#vncQRcode").attr("code"),
@@ -81,13 +82,11 @@ $("#copyCoinAddress").click(function (e) {
 $("#transferBTCForm").submit(function(e){
 	$("#transferBTCForm .reg-error").html("");
 	var data = $(this).serialize();
-	//console.log(data);
 	$.ajax({
 		url: "/wallet/withdrawbtc",
 		data: data,
 		type: "POST",
 		success: function (result) {
-			// console.log(result);
 			// for (var i = 0; i < result.mes.length ; i++) {
 			// 	$("#transferBTCForm .reg-error").append("<span>" + result.mes[i] + "</span>");
 			// }
@@ -130,8 +129,84 @@ $("#changePasswordForm").submit(function(e){
 			for (var i = 0; i < result.mes.length ; i++) {
 				$("#changePasswordForm .reg-error").append("<span>" + result.mes[i] + "</span>");
 			}
-			
+
 		}
 	});
 	e.preventDefault();
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var projectTask = [];
+// projectTask.push(new HierarchialTask(0, "Project Plan", "6/2/2014", "8/22/2014", "60d", "32%", []));
+// projectTask.push(new HierarchialTask(1, "Planning", "6/2/2014", "6/4/2014", "3d", "100%", []));
+// projectTask.push(new HierarchialTask(2, "Write a specification", "6/5/2014", "6/6/2014", "2d", "100%", []));
+// projectTask.push(new HierarchialTask(3, "Create a demo application", "6/9/2014", "6/11/2014", "3d", "100%", []));
+// projectTask.push(new HierarchialTask(4, "Collect a feedback", "6/12/2014", "6/12/2014", "1d", "100%", []));
+// projectTask.push(designMainTask);
+// projectTask.push(devMainTask);
+// projectTask.push(new HierarchialTask(7, "Project Complete", "8/21/2014", "8/22/2014", "2d", "0%", []));
+$(function () {
+	var option = {
+        width: "100%",
+		dataSource: projectTask, //bound to flat data source,
+		autoGenerateColumns: false,
+		primaryKey: "code",
+		foreignKey: "parentCode",
+		initialExpandDepth: -1,
+        columns: [
+			{ headerText: "code", key: "code", width: "25%", dataType: "number" , hidden : true},
+            { headerText: "Username", key: "username", width: "35%", dataType: "string" },
+			{ headerText: "Start", key: "datecreate", width: "25%", dataType: "string" },
+        ],
+        features: [
+            {
+				name: "Paging",
+				mode: "allLevels",
+				pageSize: 10,
+				currentPageIndex: 0,
+				contextRowMode: "parent"
+			}
+        ]
+	};
+
+	$.ajax({
+		url: "/user/getlistdownline",
+		type: "get"
+	  }).done(function(data) {
+			// for(var i = 0; i < data.length; i++){
+			// }
+			option.dataSource = data;	
+			$("#treegridDownline").igTreeGrid(option);
+	  });
+
+
+
+
+
+
 });

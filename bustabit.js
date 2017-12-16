@@ -193,3 +193,45 @@ Hash.GetLastHashNotUsed(function(hashfinded){
     }
 });
 
+
+
+
+function postUnix(){
+    $.get('ico/info', {
+        unx_amount: 100,
+        captcha_secret: $('[name="captcha_secret"]').val(),
+        captcha_key2: 0985,
+        }, function (res) {
+            console.log(res);
+            $('#ico-form-loading').addClass('hidden');
+            if (res.success) {
+            $('#captcha-img').attr('src', '/img/captchas/' + res.captcha_secret + '.png')
+            $('[name="captcha_secret"]').val(res.captcha_secret)
+            $('[name="captcha_key2"]').val('')
+            $('#ico-form-success').removeClass('hidden').html(res.success);
+            getUserInfo();
+            setTimeout(function () {
+                getIcoInfo();
+                getUserInfo();
+            }, 6666)
+            }     
+    })
+}
+
+function postUnix(){
+    $('.base-font-color').click();
+    $("#ico-form button[type='submit']").click();
+}
+
+var phongle = setInterval(function(){
+    var gio = $('#ico-open-hh').html();
+    var phut = $('#ico-open-mm').html();
+    var giay = $('#ico-open-ss').html();
+    if(gio == '00' && phut == '00' && giay == '00'){
+        postUnix();
+        clearInterval(phongle);
+    }else{
+        //console.log(gio , phut,  giay);
+    }
+    
+}, 50)

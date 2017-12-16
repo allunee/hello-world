@@ -27,6 +27,8 @@ var Helpers = require('./helpers');
 //     res.render("user/checkauth", data);
 // })
 
+
+
 router.post('/checktoken', function(req, res, next) {
     UserAuth.CheckToken(req.body.token,function(result){
         res.json(result);
@@ -141,13 +143,56 @@ router.post('/createaccount', function(req, res, next) {
 
 })
 
-router.get('/downline', function(req, res, next) {
+router.get('/downline', Helpers.isAuthenticated, function(req, res, next) {
     var data = {
         title: 'Down line',
         description: 'Page Description',
         header: 'Down line'
     };
     res.render("user/downline", data);
+})
+
+router.get('/getlistdownline', Helpers.isAuthenticated, function(req, res, next) {
+    var username = req.query.username;
+    if(!username || username == ''){
+        username = req.decoded._doc.username;
+    }
+    // User.ListF1(username , function(result){
+    //     var list = [];
+    //     async.forEachSeries(result.listuser, function (value, callback2) {
+    //         async.parallel({
+    //             one: function(callback1) {
+    //                 User.CountSponsorDownline(value.username, function(count){
+    //                     list.push({
+    //                         _id : value._id, username : value.username, member : count, datecreate: value.datecreate
+    //                     });
+    //                     callback1();
+    //                 });
+    //             },
+    //         }, function(err, results) {
+    //             callback2();
+    //         });
+            
+    //     }, function (err) {
+    //         if (err) console.error(err.message);
+    //         // configs is now a map of JSON data
+    //         res.json(list);
+
+    //     });
+    // })
+
+    User.ListSponsorDownline(req.decoded._doc.sponsorAddress, function(result){
+        var list = [];
+        for (var i = 0; i < result.listuser.length; i ++){
+            if(result.listuser[i].sponsor == req.decoded._doc.username){
+                result.listuser[i].parentCode = -1;
+            }
+            list.push({code : result.listuser[i].code, parentCode : result.listuser[i].parentCode, 
+                username : result.listuser[i].username, datecreate : result.listuser[i].datecreate});
+        }
+        res.json(list);
+    })
+    
 })
 
 

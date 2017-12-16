@@ -35,26 +35,26 @@ router.get('/index', function(req, res, next) {
     res.json( data);    
 })
 
-router.post("/syncuser", function(req, res, nex){
-    var ip = getClientAddress(req);
-    console.log(ip);
-    if(ip != config.allowIP && ip != '::1'){
-        return;
-    }else{
-        var item = {
-            username: req.body.username, 
-            password: req.body.password,
-            datecreate : req.body.datecreate,
-            email : req.body.email,
-            btcAddress : req.body.btcAddress,
-            vncAddress : req.body.vncAddress,
-        }
-        User.addUser(item, ["member"], function(result){
-            // console.log(result);
-            res.json(result.status);
-        })
-    }
-});
+// router.post("/syncuser", function(req, res, nex){
+//     var ip = getClientAddress(req);
+//     console.log(ip);
+//     if(ip != config.allowIP && ip != '::1'){
+//         return;
+//     }else{
+//         var item = {
+//             username: req.body.username, 
+//             password: req.body.password,
+//             datecreate : req.body.datecreate,
+//             email : req.body.email,
+//             btcAddress : req.body.btcAddress,
+//             vncAddress : req.body.vncAddress,
+//         }
+//         User.addUser(item, ["member"], function(result){
+//             // console.log(result);
+//             res.json(result.status);
+//         })
+//     }
+// });
 
 router.get('/inithash', function(req, res, next){
     var number = req.query.number || req.body.number;

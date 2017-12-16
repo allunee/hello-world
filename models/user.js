@@ -23,6 +23,8 @@ var UserSchema = new Schema ({
 	vncAddress : String,
 	roles : [{ type: Schema.Types.ObjectId, ref: 'Role' }], 
 	free : { type : Number, default: 1 },
+	code : Number,
+	parentCode : Number
 });
 
 UserSchema.pre('save', function(next){
@@ -87,7 +89,9 @@ module.exports.addUser = function (item, role, callback) {
 								btcAmount : item.btcAmount,
 								vncAddress : item.vncAddress,
 								vncAmount : item.vncAmount,
-								roles : []
+								roles : [],
+								code : item.code,
+								parentCode : item.parentCode
 							}); 
 							
 							for(var i = 0; i < role.length; i ++)
@@ -219,6 +223,38 @@ module.exports.CountSponsorDownline = function(str, callback){
 			throw err;
 		}
 		callback(count);
+	});
+}
+
+//db.users.find({name: /a/})  //like '%a%'
+//db.users.find({name: /^pa/}) //like 'pa%' 
+//db.users.find({name: /ro$/}) //like '%ro'
+module.exports.ListSponsorDownline = function(str, callback){
+	User.find({sponsorAddress : { $regex : '^' + str + '-'}}).sort({sponsorAddress : 1}).exec(function(err, userfinded){
+		if(err){
+			throw err;
+		}
+		if(!userfinded){
+			callback({status: false, listuser : null});
+		} else if (userfinded){
+			callback({status: true, listuser : userfinded});
+		}
+	});
+}
+
+module.exports.ListF1 = function(str, callback){
+	User.find({sponsor : str}, function(err, userfinded){
+		if(err){
+			throw err;
+		}
+		if(!userfinded){
+			callback({status: false, listuser : null});
+		} else if (userfinded){
+			// for(var i = 0; i < userfinded.length; i ++){
+			// 	userfinded[i].phone = '907095482059';
+			// }
+			callback({status: true, listuser : userfinded});
+		}
 	});
 }
 
