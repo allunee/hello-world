@@ -38,15 +38,16 @@ function AjaxLoad($http, url, type, data, callback){
         $scope.profiletitle = "Your profile : ";
         $scope.title = "User profile page ";
         AjaxLoad($http, "/user/getuserinfo", 'GET', {token : curtoken}, function(data){
-            console.log(data);
+            // console.log(data);
             $scope.info = data.data;
             $scope.referalLink = $(location).attr('host') + '/register?ref=' + data.data.username;
         });
         
     });
 
-    app.controller("mainCtrl", function($scope){
-        //$scope.title = "Default home page ";
+    app.controller("treeGridController", function($scope, $http){
+        
+            
     });
 
     // app.controller("walletCtrl", function($scope, $http){
@@ -106,5 +107,13 @@ function AjaxLoad($http, url, type, data, callback){
         });
     });
 
+
+
+
+
     
 })(myApp);
+
+
+
+

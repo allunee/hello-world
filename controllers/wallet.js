@@ -269,7 +269,7 @@ router.post('/withdrawvnc', Helpers.isAuthenticated, function(req, res, next){
             })
         }
     }, function(err, results) {      
-        console.log(req.body.confirmPassword, results.checkbalance);
+        // console.log(req.body.confirmPassword, results.checkbalance);
         if(!passwordHasher.validatePassword(req.body.confirmPassword, results.checkbalance.pass)){
             res.json({status: false, mes: 'Password not correct'});
             return;
@@ -321,7 +321,6 @@ router.post('/withdrawvnc', Helpers.isAuthenticated, function(req, res, next){
             };
             listTrans.push(tReceiver);
         }
-        console.log(listTrans);
         Transaction.insertMany(listTrans, function(err, db){
             if(!err){
                 var query = {

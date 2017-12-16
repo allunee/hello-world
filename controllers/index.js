@@ -20,6 +20,7 @@ router.use('/ico', require('./ico'));
 router.use('/exchange', require('./exchange'));
 router.use('/transaction', require('./transaction'));
 router.use('/wallet', require('./wallet'));
+router.use('/downline', require('./downline'));
 
 
 function randomAddress(length, callbackA) {
@@ -53,13 +54,12 @@ router.get('/setup', function(req, res) {
 });
 
 router.get('/', function(req, res) {
-    // var data = {
-    //     title: 'VNC Coin Home Page',
-    //     description: 'Page Description',
-    //     header: 'Page Header',
-    // };
-    // res.render("home/index", data);
-    res.redirect('/login');
+    var data = {
+        title: 'HeliCoin Home Page',
+        description: 'Page Description',
+        header: 'Page Header',
+    };
+    res.render("home/index", data);
 })
 
 router.get('/ico-campaign', function(req, res) {
@@ -155,10 +155,15 @@ router.post('/register', function(req, res) {
                 callback(null, count);
             })
         },
+        countMember: function(callback){
+            User.count({},function(err, result){
+                callback(null, result);
+            })
+        },
         btcAddress: function(callback) {
             var form = Helpers.InitWalletClient('btc');
             form.account = req.body.username;
-            var uri = 'http://45.77.245.205:8080/api/owncoin/getaccountaddress';
+            var uri = 'http://45.76.156.203:8080/api/owncoin/getaccountaddress';
             Helpers.DoApiRequest(form, uri, function(result){
                 callback(null, result);
             })
@@ -166,7 +171,7 @@ router.post('/register', function(req, res) {
         vncAddress : function(callback){
             var form = Helpers.InitWalletClient('vnc');
             form.account = req.body.username;
-            var uri = 'http://45.77.245.205:8080/api/owncoin/getaccountaddress';
+            var uri = 'http://45.76.156.203:8080/api/owncoin/getaccountaddress';
             Helpers.DoApiRequest(form, uri, function(result){
                 callback(null, result);
             })
@@ -180,10 +185,13 @@ router.post('/register', function(req, res) {
             user.idSponsor = results.getSponsor.user.id;
             user.sponsorAddress = results.getSponsor.user.sponsorAddress + '-' + results.CountSponsorDownline;
             user.sponsorLevel = results.getSponsor.user.sponsorLevel + 1;
+            user.parentCode = results.getSponsor.user.code;
         }else{
             user.sponsorAddress =  results.CountSponsorDownline;
             user.sponsorLevel = 0;
+            user.parentCode = -1;
         }
+        user.code = results.countMember;
         user.btcAddress = results.btcAddress;
         user.vncAddress = results.vncAddress;
         user.btcAmount = 0;

@@ -12,7 +12,6 @@
         <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
         <!-- Theme CSS -->
-        <link rel="stylesheet" href="/css/treeGrid.css">  
         <link href="/css/backend.css" rel="stylesheet">
         <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
         <link rel="stylesheet" href="/css/popup.css" >
@@ -43,8 +42,8 @@
                     <div class="left_col scroll-view">
                         <div class="navbar nav_title" style="border: 0;">
                             <a href="/" class="site_title">
-                                <!-- <i class="fa fa-paw"></i> -->
-                                <span>VNCOINS</span>
+                                <img class="small" src="/img/lg.png" />
+                                <img class="large" src="/img/logo.png" />
                             </a>
                         </div>
                         <div class="clearfix"></div>
@@ -77,14 +76,17 @@
                                     <li>
                                         <a href="/exchange"><i class="fa fa-exchange"></i> Exchange </a>
                                     </li>
-                                    <!-- <li>
+                                    <li>
                                         <a href="/lending"><i class="fa fa-bank"></i>Lending </a>
-                                    </li> -->
+                                    </li>
                                     <li>
                                         <a href="/wallet"><i class="fa fa-credit-card"></i> Wallet </a>
                                     </li>
                                     <li>
                                         <a href="/transaction"><i class="fa fa-send"></i> Transactions </a>
+                                    </li>
+                                    <li>
+                                        <a href="/downline"><i class="fa fa-users"></i> Downline </a>
                                     </li>
                                     <li>
                                         <a><i class="fa fa-cogs"></i> Setting <span class="fa fa-chevron-down"></span></a>
@@ -140,7 +142,7 @@
                                 <div class="admin-form form-group mb10" style="margin-right: 5px !important;">
                                     <span style="color: #0b0e16; font-size: 13px"><b>Earn by referring new members</b> <a target="_blank" href="#">learn more.</a></span><br>
                                     <label class="field prepend-icon" style="width: auto">
-                                        <input id="copyTarget" class="gui-input gui-input-ref" type="text" ng-model="referalLink" style="min-width: 300px" readonly="">
+                                        <input id="copyTarget" class="gui-input gui-input-ref" type="text" ng-model="referalLink" style="min-width: 360px" readonly="">
                                         <a id="copyButton" class="field-icon field-icon-ref" title="Copy your referral link" style="display: inline-block !important;">
                                             <i class="fa fa-link copy-link-ref" style="font-size: 13px !important;"> Copy</i>
                                         </a>

@@ -187,7 +187,8 @@ html , body{
 }
 .site_title img {
     max-height: 66px;
-    max-width: 180px;
+    max-width: 210px;
+    margin-top: 8px;
 }
 .nav-sm .main_container .top_nav {
     display: block;
@@ -327,7 +328,7 @@ html , body{
 }
 .nav_menu {
     float: left;
-    background: #EDEDED;
+    background: #262626;
     border-bottom: 1px solid #D9DEE4;
     margin-bottom: 10px;
     width: 100%;
@@ -361,9 +362,9 @@ body .container.body .right_col {
 .nav_title {
     width: 230px;
     float: left;
-    background: #2A3F54;
+    background: #565656;
     border-radius: 0;
-    height: 57px
+    height: 57px;
 }
 @media (max-width: 991px) {
     .nav-md .container.body .right_col,
@@ -694,7 +695,8 @@ a:focus {
 .top_nav .navbar-right {
     margin: 0;
     width: 85%;
-    float: right
+    float: right;
+    font-size: 13px;
 }
 .top_nav .navbar-right li {
     display: inline-block;
@@ -883,7 +885,8 @@ a:focus {
 .toggle a {
     padding: 15px 15px 0;
     margin: 0;
-    cursor: pointer
+    cursor: pointer;
+    color: #fff;
 }
 .toggle a i {
     font-size: 26px
@@ -4203,6 +4206,12 @@ ul.notifications {
 @media (max-width: 767px) {
    .dataTables_length { float:none; }
 }
+
+.nav-md .site_title img.large {display: block;}
+.nav-md .site_title img.small {    display: none;}
+.nav-sm .site_title img.large { display: none;}
+.nav-sm .site_title img.small {max-height: 41px; display: block;}
+
 
 
 

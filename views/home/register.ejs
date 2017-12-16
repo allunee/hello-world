@@ -86,7 +86,7 @@
         </head>
     
         <body class="home header-style2" ng-app='myApp' >
-            <div style="background: url('/img/gallery/bg1.jpg'); background-size: cover;">
+            <div style="background: url('/img/gallery/bg2.jpg'); background-size: cover;">
                 <div class="row">
                     <div class="container">
                             <div class="site-logo xs-mt-10" style="text-align: center; float:none; margin-top: 10%;">
@@ -225,7 +225,9 @@
                     $("#usernamereg").keyup(function(e){
                         $(this).val($(this).val().toLowerCase());
                     });
+                    console.log(getUrlParameter('ref'));
                     if(getUrlParameter('ref') != null && getUrlParameter('ref') != '' && typeof getUrlParameter('ref') != 'undefined'){
+                        console.log('change');
                         localStorage.setItem('ref', getUrlParameter('ref'));
                         location.href = '/register';
                     }else{

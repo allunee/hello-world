@@ -1,40 +1,296 @@
-        <div>
-            <div class="container  mt40 mb20">
-                <div class="row">
-                    
-                    <div class="col-md-12 col-sm-12">
-                        <ul class="list-inline footer-font-icon ulockd-mrgn1220" style="text-align: center;">
-                            <li><a href="http://www.facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a></li>
-                            <li><a href="http://www.twitter.com/" target="_blank"><i class="fa fa-twitter"></i></a></li>
-                            <li><a href="http://www.youtube.com/channel/" target="_blank"><i class="fa fa-youtube"></i></a></li>
-                            <li><a href="https://t.me/" target="_blank"><i class="fa fa-telegram" aria-hidden="true"></i></a></li>
-                            <li><a href="https://www.reddit.com/user/TripAlly/" target="_blank"><i class="fa fa-reddit"></i></a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+
+    <section id="footer" class="wrapper">
+        <div class="container">
+          <div class="col-xs-12 col-sm-6">
+            <p>Copyright © 2017 HeliCoin All rights reserved.</p>
+          </div>
+          <div class="col-xs-12 col-sm-6">
+    
+            <ul class="list-unstyled text-right socail-network">
+    
+              <a> Follow us :</a>
+              <br>
+              <li>
+                <a href="https://www.facebook.com/HeliCoin.co" target="_blank">
+                  <i class="fa fa-facebook"></i>
+                </a>
+              </li>
+              <li>
+                <a href="https://twitter.com/HeliCoin" target="_blank">
+                  <i class="fa fa-twitter"></i>
+                </a>
+              </li>
+              <li>
+                <a href="http://t.me/HeliCoinico" target="_blank">
+                  <i class="fa fa-telegram"></i>
+                </a>
+              </li>
+    
+            </ul>
+    
+          </div>
         </div>
+        <!-- container -->
+      </section>    
+    
+    <div class="overlay overlay-hugeinc">
+        <button type="button" class="overlay-close">Close</button>
+        <nav>
+          <ul>
+            <li class="hideit">
+              <a href="index.html">Home</a>
+            </li>
+            <li class="hideit">
+              <a href="#about">About</a>
+            </li>
+            <li class="hideit">
+              <a href="#ico">Ico</a>
+            </li>
+            <li class="hideit">
+              <a href="public/LandingPageHeliCoin/whitepaper-HeliCoin7b30.pdf?v=4">White Paper</a>
+            </li>
+            <li class="hideit">
+              <a href="#lending">Lending</a>
+            </li>
+            <li class="hideit">
+              <a href="#affiliate">Affiliate</a>
+            </li>
+            <li class="hideit">
+              <a href="#roadmap">Roadmap</a>
+            </li>
+    
+            <li class="hideit">
+              <a href="account/signin.html">
+                <i class="fa fa-user"></i> Login</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
 
-        <div>
-            <footer class="footer">
+    <script src="/js/jquery-1.11.2.min.js"></script>
+    <script src="/js/modernizr.custom.js"></script>
+    <script src="/js/wow.min.js"></script>
+    <script src="/js/owl-carousel.js"></script>
+    <script src="/js/nivo-lightbox.min.js"></script>
+    <script src="/js/smoothscroll.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/classie.js"></script>
+    <script src="/js/script7b30.js"></script>
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/vue/2.2.4/vue.min.js'></script>
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/axios/0.15.3/axios.min.js'></script>
 
-                <div class="site-footer-bottom">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-sm-6 text-left com-xs-text-center" style="padding-top: 6px">
-                                <p>&copy; 2017 vncoins.vn . All Rights Reserved</p>
-                            </div>
-                            <div class="col-sm-6 text-center" style="position: inherit;">
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <a id="back-to-top"><i class="fa fa-angle-double-up"></i></a>
-            </footer>
-        </div>
-    </div>
-
-
+    <script type="text/javascript">
+        $(document).ready(function () {
+    
+    
+          var svTimeInit = Number('1513322976') * 1000;
+          var svTimeOffsetInit = -Number('7') * 1000 * 60 * 60;
+          console.log("svTimeOffsetInit " + svTimeOffsetInit);
+    
+          console.log("svTimeInitGMT " + svTimeInit + new Date(svTimeInit));
+    
+          var clientOffset = new Date().getTimezoneOffset() * 60 * 1000;
+          //console.log("clientOffset "+clientOffset);
+    
+    
+          var clientTimeInit = new Date().getTime();
+          console.log("clientTimeInit(GMT) " + clientTimeInit + new Date(clientTimeInit));
+          var dayClientInit = Math.floor(clientTimeInit / (1000 * 60 * 60 * 24));
+          //console.log("dayClientInit "+dayClientInit);
+    
+          var timeEnd = 1513339200000; // GMT+0
+    
+          /**************************
+          COUNTDOWN COMPONENT
+          **************************/
+          Vue.component('countdown', {
+            template: `
+          <section class="countdown">
+    
+          <div v-show="!expired" class="timer">
+          <div class="box">
+          <div class="spacer"></div>
+          <p class="value">{{ theTime.days }}</p>
+          <p class="label">days</p>
+          </div>
+          <div class="box">
+          <div class="spacer"></div>
+          <p class="value">{{ theTime.hours }}</p>
+          <p class="label">hours</p>
+          </div>
+          <div class="box">
+          <div class="spacer"></div>
+          <p class="value">{{ theTime.minutes }}</p>
+          <p class="label">minutes</p>
+          </div>
+          <div class="box">
+          <div class="spacer"></div>
+          <p class="value">{{ theTime.seconds }}</p>
+          <p class="label">seconds</p>
+          </div>
+          <!--<p class="text">to start</p>-->
+          </div>
+    
+          <div v-show="expired" class="expired-timer timer">
+          <div class="box">
+          <div class="spacer"></div>
+          <p class="value">Open time selling ICO</p>
+          <p class="label">SELLING</p>
+          </div>
+          </div>
+    
+          </section>
+    
+          `,
+    
+            data() {
+              return {
+                deadline: '2017-12-17T02:00:00',
+                days: 'HI',
+                hours: 'TH',
+                minutes: 'ER',
+                seconds: 'E!',
+                expired: false
+              };
+            },
+    
+            computed: {
+              theTime() {
+                var ctx = this,
+                  countDownDate = timeEnd;
+    
+                // Countdown loop    
+    
+                var x = setInterval(function () {
+                  var clientOffsetNew = new Date().getTimezoneOffset() * 60 * 1000;
+                  if (clientOffsetNew != clientOffset) {
+                    //console.log("Client timezone changed to "+clientOffsetNew);
+                    clientTimeInit = clientTimeInit + (clientOffset - clientOffsetNew);
+                    timeEnd = timeEnd - (clientOffset - clientOffsetNew);
+                    clientOffset = clientOffsetNew;
+                  }
+    
+    
+                  var currentClientTime = new Date().getTime();
+                  var dayClientNew = Math.floor(currentClientTime / (1000 * 60 * 60 * 24));
+                  //console.log("dayClientNew "+dayClientNew);
+                  if (dayClientNew != dayClientInit) {
+                    //console.log("Day changed to "+dayClientNew);
+    
+                    // currentClientTime = currentClientTime + (dayClientInit - dayClientNew)*(1000 * 60 * 60 * 24);
+                    // dayClientInit = dayClientNew;
+                    window.location.reload(true);
+                  }
+    
+                  var diffClientTime = currentClientTime - clientTimeInit;
+                  //console.log("diffClientTime "+diffClientTime);
+                  var newServerTime = svTimeInit + diffClientTime;
+                  // console.log("newServerTime  " + new Date(newServerTime));
+    
+    
+                  // Difference between the 2 dates
+                  var countDownDate = timeEnd - svTimeOffsetInit,
+                    now = newServerTime,
+                    diff = countDownDate - now,
+                    // Time conversion to days, hours, minutes and seconds
+                    tdays = Math.floor(diff / (1000 * 60 * 60 * 24)),
+                    thours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
+                    tminutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60)),
+                    tseconds = Math.floor((diff % (1000 * 60)) / 1000);
+    
+    
+                  // console.log("countDownDate "+countDownDate);
+    
+                  // Keep 2 digits
+                  ctx.days = (tdays < 10) ? '0' + tdays : tdays;
+                  ctx.hours = (thours < 10) ? '0' + thours : thours;
+                  ctx.minutes = (tminutes < 10) ? '0' + tminutes : tminutes;
+                  ctx.seconds = (tseconds < 10) ? '0' + tseconds : tseconds;
+    
+                  // Check for time expiration
+                  if (diff < 0) {
+                    clearInterval(x);
+                    ctx.expired = true;
+                  }
+                }, 1000);
+    
+                // Return data
+                return {
+                  days: ctx.days,
+                  hours: ctx.hours,
+                  minutes: ctx.minutes,
+                  seconds: ctx.seconds
+                };
+              }
+            }
+          });
+    
+    
+    
+          /**************************
+            ROOT COMPONENT
+            **************************/
+          var app = new Vue({
+            el: '#app'
+          });
+    
+    
+        });
+    
+      </script>
+      <script>
+        new WOW().init();
+      </script>
+      <script>
+        $(document).ready(function () {
+          $(".hideit").click(function () {
+            $(".overlay").hide();
+          });
+          $("#trigger-overlay").click(function () {
+            $(".overlay").show();
+          });
+        });
+      </script>
+      <script>
+        $(document).ready(function () {
+    
+          var kawa = $('.top-bar');
+          var back = $('#back-to-top');
+          var heightslider = $('.header').height();
+          function scroll() {
+            if ($(window).scrollTop() > heightslider) {
+              kawa.addClass('fixed');
+              back.addClass('show-top');
+    
+            } else {
+              kawa.removeClass('fixed');
+              back.removeClass('show-top');
+            }
+          }
+    
+          document.onscroll = scroll;
+        });
+      </script>
+    
+      
+    
+      <script>
+        $(function () {
+          $('a[href*=#]:not([href=#])').click(function () {
+            if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+              var target = $(this.hash);
+              target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+              if (target.length) {
+                $('html,body').animate({
+                  scrollTop: target.offset().top
+                }, 1000);
+                return false;
+              }
+            }
+          });
+        });
+      </script>
 </body>
+
+
 </html>
